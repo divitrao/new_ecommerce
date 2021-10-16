@@ -29,7 +29,8 @@ const OtpForm = (navigation_link)=>{
         }
         else if(otpArray.join('')=='1111'){
             setOtpSuccessful(true)
-            navigation_link.navigation_link.navigate('home')
+            // navigation_link.navigation_link.navigate('home') 
+            navigation_link.navigation_link.navigate('name_detail')
 
         }
     }
