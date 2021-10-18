@@ -2,10 +2,11 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import Home from '../../screens/Home/home';
 import { Image, View, Text } from 'react-native';
-import Category from '../../screens/category/';
+import Category from '../../screens/category';
 import Account from '../../screens/Account';
 import My_List from '../../screens/list';
 import Search from '../../screens/search';
+import TopTabNavigation from '../../components/customNavigation/topNavigator/topTabNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,7 +32,21 @@ const  MyTabs=()=> {
       )}} component={Home} />
 
 
-<Tab.Screen name="Category"  options={{headerStyle:{height:80},headerShown:false,tabBarShowLabel:false ,tabBarIcon:({focused})=>(
+<Tab.Screen name="Category"  options={{
+                                       headerShown:true,
+                                       tabBarShowLabel:false ,
+                                       title:'Fruits & Vegetables',
+                                       headerRight: ()=>{ 
+                                          return(
+                                              <View>
+                                                    <Image resizeMode='contain' source={require('../../assets/images/Vector.png')} />
+                                                  {/* <Icon size={21} name="star" type="material"/> */}
+                     
+              </View>
+                                          )
+                                      },
+                                       
+                                       tabBarIcon:({focused})=>(
           <View style={{alignItems:'center'}}>
               <View style={{width:25,height:2,backgroundColor:focused?'#F04E23':undefined}}>
 
@@ -47,7 +62,7 @@ const  MyTabs=()=> {
              }} />
              <Text style={{color:focused?'#F04E23':undefined}}>Category</Text>
           </View>
-      )}} component={Category} />
+      )}} component={TopTabNavigation} />
 
 
 

@@ -9,7 +9,7 @@ export default function Home({navigation}) {
 
   return (
     <View style={styles.container}>
-        <Header />
+       
         <Boxes />
     </View>
   );

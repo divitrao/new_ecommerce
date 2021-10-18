@@ -1,22 +1,23 @@
 import React from "react";
 import { StyleSheet ,TouchableOpacity, Text, View, TextInput } from "react-native";
-import colors from "../../assets/themes/colors";
+import COLORS from "../../assets/themes/colors";
+import color from "../../assets/themes/colors";
 
 export default function Input({icon,error,onChange}){
 
     const getBorderColor=()=>{
         if(error){
-            return colors.danger;
+            return COLORS.danger;
         }
         else{
-            return colors.grey;
+            return COLORS.grey;
         }
     }
 
     return (
         <View>
             <View style={styles.wrapper}>
-            <View>{icon && icon}</View>
+            <View style={styles.icon}>{icon && icon}</View>
             <TextInput 
                 style={[styles.input,{borderBottomColor: getBorderColor()}]} 
                 onChangeText={(value)=>{
@@ -30,7 +31,11 @@ export default function Input({icon,error,onChange}){
 }
 
 const styles = StyleSheet.create({
-  
+
+    icon:{
+        marginBottom:8,
+    },
+    
       input: {
         borderBottomColor: '#a89f9f',
         flex: 1,
@@ -38,6 +43,7 @@ const styles = StyleSheet.create({
       },
 
       wrapper:{
+        
         height: 42,
         borderColor: 'grey',
         borderBottomWidth: 1,
@@ -46,8 +52,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
       },
       error:{
-          color: colors.danger,
+          color: COLORS.danger,
           paddingTop:4,
-          fontSize: 12,  
+          fontSize: 14,  
       }
 })
