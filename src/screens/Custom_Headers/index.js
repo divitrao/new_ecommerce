@@ -1,60 +1,57 @@
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import {ArrowBackIcon, NativeBaseProvider, Center, ChevronDownIcon, VStack, Select,CheckIcon} from 'native-base'
+import SelectDropdown from 'react-native-select-dropdown'
 const Custom_header = (props)=>{
     let [service, setService] = React.useState("")
-    console.log(props)
+    // console.log(props)
+    const centers = ['HOME','CENTER','SENDER']
+    const checked=()=>{
+      console.log('clicked')
+    }
     return(
-        <View style={{height:60,backgroundColor:'grey'}}>
-            <View style={{flexDirection:'row'}}>
-            <View style={{paddingTop:20}}>
+        <View style={{backgroundColor:'white', flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
+            <View style={{flexDirection:'row',alignItems:'center'}}>
+            <View>
 
-              
+            
             <TouchableOpacity onPress={props.navigation.goBack}>
-                <View>
-                <NativeBaseProvider>
-                
-                  
-                        <ArrowBackIcon  size="10" />
-                
-                        
-                </NativeBaseProvider>
-                </View>
-                </TouchableOpacity>
+                <Image source={require('../../assets/back_arrow/back.png')} style={{width:22,height:30,resizeMode:'contain'}}  />
+            </TouchableOpacity>
             
             </View>
-            <View>
+            <View style={{paddingLeft:5}}>
             <View>
                 <Text style={{fontSize:20}}>{props.titles}</Text>
             </View>
             <View>
-            <NativeBaseProvider>
-            <VStack alignItems="center" space={4} style={{height:36,}} >
-      <Select
-    //   borderX='InactiveBorder'
-    variant="unstyled"
-        selectedValue={service}
-        minWidth="120"
-        accessibilityLabel="Choose Service"
-        placeholder="Choose Service"
-        _selectedItem={{
-          bg: "teal.600",
-          endIcon: <CheckIcon size="5" />,
-        }}
-        mt={1}
-        defaultValue='Bangalore'
-        onValueChange={(itemValue) => setService(itemValue)}
-      >
-        <Select.Item label="Bangalore" value="Bangalore" />
-        <Select.Item label="Mumbai" value="Mumbai" />
-        <Select.Item label="Pune" value="Pune" />
-        
-      </Select>
-    </VStack>
-    </NativeBaseProvider>
+            <SelectDropdown 
+            data={centers}
+            onSelect={(selectedItem,index)=>{
+                // console.log(selectedItem)
+                // setcenterAddress(center_address[selectedItem])
+            }}
+            buttonTextAfterSelection={(selectedItem,index)=>{
+                return selectedItem
+            }}
+            rowTextForSelection = {(item,index)=>{
+                return item
+
+            }}
+            defaultButtonText={centers[0]}
+            buttonStyle={{width:150,height:30,backgroundColor:'transparent'}}
+            buttonTextStyle={{fontSize:13}}
+            //renderDropdownIcon = {()=>dropdowns()}
+            dropdownIconPosition='right'
+           />
             </View>
             </View>
             
+            </View>
+            <View style={{paddingRight:10}}>
+              <TouchableOpacity>
+                <Image source={require('../../assets/search_icon/search.png')} style={{height:30,width:30}} />
+              </TouchableOpacity>
             </View>
         </View>
     )
