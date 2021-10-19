@@ -9,7 +9,7 @@ const Category =({navigation})=>{
     return(
         <View style={styles.main_view}>
             <View style={{alignItems:'center',paddingLeft:10,paddingRight:10}}>
-        <Search_bar />
+        <Search_bar navigation={navigation} />
         </View>
         <View style={styles.product_category}>
         <Category_section navigation={navigation} />

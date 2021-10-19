@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, FlatList } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { Button } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+// import { Button } from 'react-native-elements';
+// import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 

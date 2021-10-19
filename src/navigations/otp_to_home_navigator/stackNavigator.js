@@ -10,6 +10,7 @@ import Getlocation from "../../screens/location/getLocation";
 import Veggies from "../../screens/category/vegetable";
 import { height } from "styled-system";
 import Custom_header from "../../screens/Custom_Headers";
+import Review_Cart from "../../screens/reviewCart/reviewCart";
 const stacks = createNativeStackNavigator()
 const HomeStack = ()=>{
 
@@ -31,6 +32,7 @@ const HomeStack = ()=>{
                         )
                     }
                     })}   name="Vegetable_and_Dairy" component={Veggies} />
+                    <stacks.Screen name="review_cart" options={{headerTitle:'Review Cart'}} component={Review_Cart} />
             </stacks.Navigator>
         
     )

@@ -7,7 +7,11 @@ import Account from '../../screens/Account';
 import My_List from '../../screens/list';
 import Search from '../../screens/search';
 import TopTabNavigation from '../../components/customNavigation/topNavigator/topTabNavigator';
-
+import Search_svg from '../../assets/search_icon/search_svg.svg' 
+import Frames from '../../assets/footer_icons/Frame.svg'
+import Pad from '../../assets/footer_icons/pad.svg'
+import Person from '../../assets/footer_icons/person.svg'
+import Home_Svg from '../../assets/footer_icons/home.svg'
 const Tab = createBottomTabNavigator();
 
 const  MyTabs=()=> {
@@ -18,7 +22,7 @@ const  MyTabs=()=> {
               <View style={{width:25,height:2,backgroundColor:focused?'#F04E23':undefined}}>
 
               </View>
-             <Image 
+             {/* <Image 
              source={require('../../assets/footer_icons/homes.png')} 
              resizeMode="contain"
              style={{
@@ -26,7 +30,8 @@ const  MyTabs=()=> {
                 height:25,
                 tintColor:focused?'#F04E23':undefined,
                 
-             }} />
+             }} /> */}
+             <Home_Svg />
              <Text style={{color:focused?'#F04E23':undefined}}>HOME</Text>
           </View>
       )}} component={Home} />
@@ -51,7 +56,8 @@ const  MyTabs=()=> {
               <View style={{width:25,height:2,backgroundColor:focused?'#F04E23':undefined}}>
 
               </View>
-             <Image 
+              <Frames />
+             {/* <Image 
              source={require('../../assets/footer_icons/frames.png')} 
              resizeMode="contain"
              style={{
@@ -59,7 +65,7 @@ const  MyTabs=()=> {
                 height:25,
                 tintColor:focused?'#F04E23':undefined,
                 
-             }} />
+             }} /> */}
              <Text style={{color:focused?'#F04E23':undefined}}>Category</Text>
           </View>
       )}} component={Category} />
@@ -71,7 +77,8 @@ const  MyTabs=()=> {
               <View style={{width:25,height:2,backgroundColor:focused?'#F04E23':undefined}}>
 
               </View>
-             <Image 
+              <Search_svg />
+             {/* <Image 
              source={require('../../assets/footer_icons/search.png')} 
              resizeMode="contain"
              style={{
@@ -79,7 +86,7 @@ const  MyTabs=()=> {
                 height:25,
                 tintColor:focused?'#F04E23':undefined,
                 
-             }} />
+             }} /> */}
              <Text style={{color:focused?'#F04E23':undefined}}>Search</Text>
           </View>
       )}} component={Search} />
@@ -89,7 +96,8 @@ const  MyTabs=()=> {
               <View style={{width:25,height:2,backgroundColor:focused?'#F04E23':undefined}}>
 
               </View>
-             <Image 
+              <Pad />
+             {/* <Image 
              source={require('../../assets/footer_icons/pad.png')} 
              resizeMode="contain"
              style={{
@@ -97,7 +105,7 @@ const  MyTabs=()=> {
                 height:25,
                 tintColor:focused?'#F04E23':undefined,
                 
-             }} />
+             }} /> */}
              <Text style={{color:focused?'#F04E23':undefined}}>My List</Text>
           </View>
       )}} component={My_List} />
@@ -110,7 +118,8 @@ const  MyTabs=()=> {
               <View style={{width:25,height:2,backgroundColor:focused?'#F04E23':undefined}}>
 
               </View>
-             <Image 
+              <Person />
+             {/* <Image 
              source={require('../../assets/footer_icons/skeleton.png')} 
              resizeMode="contain"
              style={{
@@ -118,7 +127,7 @@ const  MyTabs=()=> {
                 height:25,
                 tintColor:focused?'#F04E23':undefined,
                 
-             }} />
+             }} /> */}
              <Text style={{color:focused?'#F04E23':undefined}}>Account</Text>
           </View>
       )}} component={Account} />

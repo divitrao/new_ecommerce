@@ -6,12 +6,13 @@ import Address_header from './header_section/header'
 import Search_bar from './search_bar_section/search_bar'
 import Shop from './shop_section/shop_section'
 
-const Home = () => {
+const Home = ({navigation}) => {
+    
     return (
         <View style={{flex:1}}>
             <Address_header />
             <View style={{alignItems:'center',paddingLeft:10,paddingRight:10}}>
-            <Search_bar />
+            <Search_bar navigation={navigation} />
             </View>
             <Carousel_card />
             <Shop />
