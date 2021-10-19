@@ -12,7 +12,7 @@ export default StyleSheet.create({
     },
     address:{
         fontSize:12,
-        color:'grey'
+        color:'grey',
     },
 
     dropdown_and_address:{

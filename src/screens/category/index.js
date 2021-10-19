@@ -1,35 +1,23 @@
-// import React from "react";
-// import { Text, View } from "react-native";
+import React from "react";
+import { Text, View } from "react-native";
+import styles from './styles'
+import Search_bar from "../Home/search_bar_section/search_bar";
+import Category_section from "./All_category/AllCategory";
 
-// const Category =()=>{
-//     return(
-//         <View style={{alignItems:'center',backgroundColor:'#b9faf6',marginVertical:100,height:50,}}>
-//             <Text style={{fontSize:40}}>Category</Text>
-//         </View>
-//     )
-// }
-
-// export default Category
-
-
-import React, { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import Header from '../../components/Categories/header';
-import Boxes from '../../components/Categories/boxes';
-
-export default function Category({navigation}) {
-  
-
-  return (
-    <View style={styles.container}>
-        {/* <Header /> */}
-        <Boxes />
-    </View>
-  );
+const Category =({navigation})=>{
+    // console.log(navigation)
+    return(
+        <View style={styles.main_view}>
+            <View style={{alignItems:'center',paddingLeft:10,paddingRight:10}}>
+        <Search_bar />
+        </View>
+        <View style={styles.product_category}>
+        <Category_section navigation={navigation} />
+        </View>
+        </View>
+    )
 }
 
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-    },
-})
+export default Category
+
+

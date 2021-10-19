@@ -33,7 +33,7 @@ const  MyTabs=()=> {
 
 
 <Tab.Screen name="Category"  options={{
-                                       headerShown:true,
+                                       headerShown:false,
                                        tabBarShowLabel:false ,
                                        title:'Fruits & Vegetables',
                                        headerRight: ()=>{ 
@@ -62,7 +62,7 @@ const  MyTabs=()=> {
              }} />
              <Text style={{color:focused?'#F04E23':undefined}}>Category</Text>
           </View>
-      )}} component={TopTabNavigation} />
+      )}} component={Category} />
 
 
 

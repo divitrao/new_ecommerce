@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <View style={{flex:1}}>
             <Address_header />
-            <View style={{alignItems:'center'}}>
+            <View style={{alignItems:'center',paddingLeft:10,paddingRight:10}}>
             <Search_bar />
             </View>
             <Carousel_card />

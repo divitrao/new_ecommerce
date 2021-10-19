@@ -5,6 +5,7 @@ import HomeStack from './src/navigations/otp_to_home_navigator/stackNavigator';
 import OtpScreen from './src/screens/otp_verification/otp_screen';
 import { NavigationContainer } from '@react-navigation/native';
 
+
 const App=() => {
   
 
@@ -21,14 +22,4 @@ const App=() => {
 
 
 export default App;
-
-// const App =()=>{
-//   return(
-//     <View>
-//       <MobileDetails />
-//     </View>
-//   )
-// }
-
-// export default App;
 

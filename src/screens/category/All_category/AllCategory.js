@@ -1,9 +1,11 @@
-import React from 'react'
-import {View, Text, FlatList, ScrollView, Image} from 'react-native'
+import React, { useState } from 'react'
+import {View, Text, FlatList, ScrollView, Image, TouchableOpacity} from 'react-native'
+import Veggies from '../vegetable'
 import styles from './styles'
 
-const Shop = ()=>{
-
+const Category_section = ({navigation})=>{
+    // console.log(navigation,'bbbbb')
+    let [header_name,setHeader_name] = useState('')
     const food_data = [
         {
             id:0,
@@ -11,13 +13,15 @@ const Shop = ()=>{
             content:'Fruits & Vegetable',
             colors:'rgba(83, 177, 117, 0.1)',
             border_color:'rgba(83, 177, 117, 1)',
+            navigation_key:'Vegetable_and_Dairy'
         },
         {
             id:1,
-            image: require('../../../assets/Product_icon/dairy.png'),
-            content:'Dairy, Bread & Eggs',
+            image: require('../../../assets/Product_icon/meat.png'),
+            content:'Eggs, Seafood & Meat',
             colors:'rgba(248, 164, 76, 0.1)',
             border_color:'rgba(248, 164, 76, 1)',
+            navigation_key:'Vegetable_and_Dairy'
             
         },
         {
@@ -26,6 +30,7 @@ const Shop = ()=>{
             content:'Cooking essentials',
             colors:'rgba(131, 106, 246, 0.15)',
             border_color:'rgba(131, 106, 246, 1)',
+            navigation_key:'Vegetable_and_Dairy'
         },
         {
             id:3,
@@ -33,13 +38,15 @@ const Shop = ()=>{
             content:'Fruits & Vegetable',
             colors:'rgba(131, 106, 246, 0.15)',
             border_color:'rgba(131, 106, 246, 1)',
+            navigation_key:'Vegetable_and_Dairy'
         },
         {
             id:4,
-            image: require('../../../assets/Product_icon/dairy.png'),
-            content:'Dairy, Bread & Eggs',
+            image: require('../../../assets/Product_icon/beverage.png'),
+            content:'Beverages',
             colors:'rgba(248, 164, 76, 0.1)',
             border_color:'rgba(248, 164, 76, 1)',
+            navigation_key:'Vegetable_and_Dairy'
         },
         {
             id:5,
@@ -47,6 +54,7 @@ const Shop = ()=>{
             content:'Cooking essentials',
             colors:'rgba(83, 177, 117, 0.1)',
             border_color:'rgba(83, 177, 117, 1)',
+            navigation_key:'Vegetable_and_Dairy'
         },
         {
             id:6,
@@ -54,6 +62,7 @@ const Shop = ()=>{
             content:'Fruits & Vegetable',
             colors:'rgba(248, 164, 76, 0.1)',
             border_color:'rgba(248, 164, 76, 1)',
+            navigation_key:'Vegetable_and_Dairy'
         },
         {
             id:7,
@@ -61,13 +70,15 @@ const Shop = ()=>{
             content:'Dairy, Bread & Eggs',
             colors:'rgba(83, 177, 117, 0.1)',
             border_color:'rgba(83, 177, 117, 1)',
+            navigation_key:'Vegetable_and_Dairy'
         },
         {
             id:8,
-            image: require('../../../assets/Product_icon/cooking.png'),
-            content:'Cooking essentials',
+            image: require('../../../assets/Product_icon/dairy_and_bread.png'),
+            content:'Breakfast and essentials',
             colors:'rgba(131, 106, 246, 0.15)',
             border_color:'rgba(131, 106, 246, 1)',
+            navigation_key:'Vegetable_and_Dairy'
         },
         {
             id:9,
@@ -75,6 +86,7 @@ const Shop = ()=>{
             content:'Fruits & Vegetable',
             colors:'rgba(83, 177, 117, 0.1)',
             border_color:'rgba(83, 177, 117, 1)',
+            navigation_key:'Vegetable_and_Dairy'
         },
         {
             id:10,
@@ -82,22 +94,31 @@ const Shop = ()=>{
             content:'Dairy, Bread & Eggs',
             colors:'rgba(248, 164, 76, 0.1)',
             border_color:'rgba(248, 164, 76, 1)',
+            navigation_key:'Vegetable_and_Dairy'
             
         },
         {
             id:11,
-            image: require('../../../assets/Product_icon/cooking.png'),
-            content:'Cooking essentials',
+            image: require('../../../assets/Product_icon/hygine.png'),
+            content:'Personal Care & Cosmetics',
             colors:'rgba(131, 106, 246, 0.15)',
             border_color:'rgba(131, 106, 246, 1)',
+            navigation_key:'Vegetable_and_Dairy'
         }
     ]
+
+    const fetch_it=(product_id)=>{
+        setHeader_name(food_data[product_id].content)
+        navigation.navigate('Vegetable_and_Dairy',[{header:food_data[product_id].content,product_id:product_id}])
+        
+    }
 
 
     return(
         <View style={styles.main_view}>
             <View style={styles.title}>
-            <Text style={styles.title_text}>SHOP BY CATEGORY</Text>
+            <Text style={styles.title_text}>All categories</Text>
+            <Text style={styles.muted_text}>Curated for your need </Text>
             </View>
             {/* <ScrollView> */}
             <View style={styles.list_view}>
@@ -108,10 +129,12 @@ const Shop = ()=>{
                 numColumns={3}
                 renderItem={({item})=>{
                     return(
+                        <TouchableOpacity onPress={()=>fetch_it(item.id)}>
                         <View style={[styles.content_box,{backgroundColor:item.colors,borderColor:item.border_color}]} >
                             <Image source={item.image}  />
                             <Text style={styles.content_text}>{item.content}</Text>
                         </View>
+                        </TouchableOpacity>
                     )
                 }}
                 
@@ -125,4 +148,4 @@ const Shop = ()=>{
 }
 
 
-export default Shop
+export default Category_section
