@@ -1,11 +1,12 @@
 import React from "react";
 import { StyleSheet,ScrollView,TouchableOpacity, Text, View, Image, Icon, TextInput, TouchableWithoutFeedback, Keyboard } from 'react-native';
 // import { TouchableOpacity } from "react-native-gesture-handler";
-import FlatButton from "../../components/button";
+
 
 
 const Getlocation = ({navigation}) => {
     return(
+        <View style={{backgroundColor:'white',flex:1}}>
         <ScrollView>
         <TouchableWithoutFeedback onPress={() => {
           Keyboard.dismiss();
@@ -66,6 +67,8 @@ const Getlocation = ({navigation}) => {
            </TouchableWithoutFeedback>
 
                  </ScrollView>
+
+                 </View>
 
     )
 }; 

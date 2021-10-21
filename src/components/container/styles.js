@@ -4,7 +4,8 @@ export default StyleSheet.create({
 
     wrapper:{
         // padding:20
-        justifyContent:'center'
+        justifyContent:'center',
+        flex:1
     }
 })
 

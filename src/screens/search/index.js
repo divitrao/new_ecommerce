@@ -9,7 +9,14 @@ import Clock from '../../assets/clock/clock.svg'
 import Banana from '../../assets/fruits_trending_search/banana.svg'
 import Fortune_oil from '../../assets/fruits_trending_search/fortune_oil.svg'
 import Ashirwad_aata from '../../assets/fruits_trending_search/ashirwad_aata.svg'
+import Cross from '../../assets/cross/cross.svg'
+import SearchCategoriesNavigator from "../../components/customNavigation/topNavigator/searchCategoriesNavigator";
+import Milk_Categories from '../../screens/category/vegetable/milk_categories';
+
 const Search =({navigation})=>{
+
+    const [ShowCross,setShowCross] = useState(false)
+    const [ShowSearchedContent, setShowSearchedContent ] = useState(false)
 
     const inputref = useRef()
 
@@ -55,9 +62,34 @@ const Search =({navigation})=>{
 
     ]
 
+    const ShowAnother = (e)=>{
+
+        
+        
+
+        if(e.length>0){
+            setShowCross(true)
+        }
+        else{
+            setShowCross(false)
+            setShowSearchedContent(false)
+        }
+
+        
+    }
+
+    const Search_Input=()=>{
+        setShowSearchedContent(true)
+        setShowSearch(false)
+    }
+
 
     return(
-<View>
+    //     <View style={{backgroundColor:'white',flex:1}}>
+    //   <SearchCategoriesNavigator />
+    //   </View>
+<View style={{backgroundColor:'white',flex:1}}>
+
 <View style={{flexDirection:'row',alignItems:'center',paddingTop:10}}>
     <View style={{paddingRight:15}}>
     <TouchableOpacity style={{height:22,width:22}} onPress={navigation.goBack}>
@@ -72,8 +104,10 @@ const Search =({navigation})=>{
                 </TouchableOpacity>
             </View>
             <View style={{paddingRight:10}}>
-                <TextInput placeholder="Search for products and category" ref={inputref}  onFocus={()=>setShowSearch(true)} onBlur={()=>setShowSearch(false)} />
+                
+                <TextInput placeholder="Search for products and category" onSubmitEditing={()=>Search_Input()} onChangeText={(e)=>ShowAnother(e)} ref={inputref}   onBlur={()=>setShowSearch(false)}  />
             </View>
+            { !ShowCross && <View style={{flexDirection:'row'}}>
             <View style={{paddingRight:10}}>
            
             <TouchableOpacity style={{height:18,width:18}}>
@@ -85,11 +119,20 @@ const Search =({navigation})=>{
             <Camera_svg />
             </TouchableOpacity>
             </View>
+            </View>}
+            {ShowCross && <View style={{paddingRight:10}}>
+                <Cross />
+                </View>
+
+            }
         </View>
     </View>
 </View>
-{showSearch &&
+{ ShowSearchedContent &&  <SearchCategoriesNavigator />}
+{!ShowCross &&
 <View style={{marginTop:40}}>
+            <Milk_Categories />
+    {/* <SearchCategoriesNavigator test_string='hello' /> */}
 
 <View style={{paddingLeft:10}}>
     <Text style={{color:'grey',fontStyle:'italic'}}>Recent search</Text>
@@ -112,10 +155,10 @@ const Search =({navigation})=>{
         
         />
     </View>
-</View>
+</View> 
 
 
-<View style={{paddingLeft:10,paddingTop:15}}>
+ <View style={{paddingLeft:10,paddingTop:15}}>
     <Text style={{color:'grey',fontStyle:'italic'}}>Trending  search</Text>
     <View>
         <FlatList
@@ -142,7 +185,7 @@ const Search =({navigation})=>{
 
 </View>
 }
-</View>
+</View> 
     )
 }
 

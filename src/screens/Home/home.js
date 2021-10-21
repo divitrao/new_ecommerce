@@ -9,7 +9,7 @@ import Shop from './shop_section/shop_section'
 const Home = ({navigation}) => {
     
     return (
-        <View style={{flex:1}}>
+        <View style={{flex:1,backgroundColor:'white'}}>
             <Address_header />
             <View style={{alignItems:'center',paddingLeft:10,paddingRight:10}}>
             <Search_bar navigation={navigation} />

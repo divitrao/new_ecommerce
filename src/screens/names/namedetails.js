@@ -1,13 +1,14 @@
 import React from "react";
-import { StyleSheet,TouchableOpacity, Text, View, Image, TextInput, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { StyleSheet,TouchableOpacity, Text, View,ScrollView ,Image, TextInput, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useState } from "react";
-import { ScrollView } from "react-native-gesture-handler";
+
 
 
 
 const Namedetails = ({navigation}) => {
 
     return (
+      <View style={{backgroundColor:'white',flex:1}}>
       <ScrollView>
         <TouchableWithoutFeedback onPress={() => {
           Keyboard.dismiss();
@@ -41,6 +42,7 @@ const Namedetails = ({navigation}) => {
             </View>
         </TouchableWithoutFeedback>
       </ScrollView>
+      </View>
   );
 }
 

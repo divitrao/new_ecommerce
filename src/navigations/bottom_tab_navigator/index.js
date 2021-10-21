@@ -1,20 +1,23 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import Home from '../../screens/Home/home';
-import { Image, View, Text } from 'react-native';
+import { Image, View, Text, TouchableOpacity } from 'react-native';
 import Category from '../../screens/category';
 import Account from '../../screens/Account';
 import My_List from '../../screens/list';
 import Search from '../../screens/search';
-import TopTabNavigation from '../../components/customNavigation/topNavigator/topTabNavigator';
+// import TopTabNavigation from '../../components/customNavigation/topNavigator/topTabNavigator';
 import Search_svg from '../../assets/search_icon/search_svg.svg' 
 import Frames from '../../assets/footer_icons/Frame.svg'
 import Pad from '../../assets/footer_icons/pad.svg'
 import Person from '../../assets/footer_icons/person.svg'
 import Home_Svg from '../../assets/footer_icons/home.svg'
+import myListNavigator from '../../components/customNavigation/topNavigator/myListNavigator';
+import Search_icon from '../../assets/search_icon/search_svg.svg'
+// import { SearchIcon } from 'native-base';
 const Tab = createBottomTabNavigator();
 
-const  MyTabs=()=> {
+const  MyTabs=({navigation})=> {
   return (
     <Tab.Navigator initialRouteName='Home'  >
       <Tab.Screen name="Home"  options={{headerStyle:{height:80},headerShown:false,tabBarShowLabel:false ,tabBarIcon:({focused})=>(
@@ -22,15 +25,6 @@ const  MyTabs=()=> {
               <View style={{width:25,height:2,backgroundColor:focused?'#F04E23':undefined}}>
 
               </View>
-             {/* <Image 
-             source={require('../../assets/footer_icons/homes.png')} 
-             resizeMode="contain"
-             style={{
-                width:25,
-                height:25,
-                tintColor:focused?'#F04E23':undefined,
-                
-             }} /> */}
              <Home_Svg />
              <Text style={{color:focused?'#F04E23':undefined}}>HOME</Text>
           </View>
@@ -45,7 +39,7 @@ const  MyTabs=()=> {
                                           return(
                                               <View>
                                                     <Image resizeMode='contain' source={require('../../assets/images/Vector.png')} />
-                                                  {/* <Icon size={21} name="star" type="material"/> */}
+                                                  
                      
               </View>
                                           )
@@ -57,15 +51,7 @@ const  MyTabs=()=> {
 
               </View>
               <Frames />
-             {/* <Image 
-             source={require('../../assets/footer_icons/frames.png')} 
-             resizeMode="contain"
-             style={{
-                width:25,
-                height:25,
-                tintColor:focused?'#F04E23':undefined,
-                
-             }} /> */}
+             
              <Text style={{color:focused?'#F04E23':undefined}}>Category</Text>
           </View>
       )}} component={Category} />
@@ -78,37 +64,29 @@ const  MyTabs=()=> {
 
               </View>
               <Search_svg />
-             {/* <Image 
-             source={require('../../assets/footer_icons/search.png')} 
-             resizeMode="contain"
-             style={{
-                width:25,
-                height:25,
-                tintColor:focused?'#F04E23':undefined,
-                
-             }} /> */}
              <Text style={{color:focused?'#F04E23':undefined}}>Search</Text>
           </View>
       )}} component={Search} />
 
-<Tab.Screen name="mylist"  options={{headerStyle:{height:80},headerShown:false,tabBarShowLabel:false ,tabBarIcon:({focused})=>(
+<Tab.Screen name="mylist"  options={{tabBarShowLabel:false,headerTitle:'My List',headerRight: ()=>{ 
+                                          return(
+                                              <View style={{marginHorizontal:10}}>
+                                                  <TouchableOpacity style={{width:20,height:20}} onPress={()=>navigation.navigate('Search')}  >
+                                                   <Search_icon />
+                                                   </TouchableOpacity>
+                                                  {/* <Icon size={21} name="star" type="material"/> */}
+                     
+              </View>
+                                          )
+                                      } ,tabBarIcon:({focused})=>(
           <View style={{alignItems:'center'}}>
               <View style={{width:25,height:2,backgroundColor:focused?'#F04E23':undefined}}>
 
               </View>
               <Pad />
-             {/* <Image 
-             source={require('../../assets/footer_icons/pad.png')} 
-             resizeMode="contain"
-             style={{
-                width:25,
-                height:25,
-                tintColor:focused?'#F04E23':undefined,
-                
-             }} /> */}
              <Text style={{color:focused?'#F04E23':undefined}}>My List</Text>
           </View>
-      )}} component={My_List} />
+      )}} component={myListNavigator} />
 
 
 
@@ -119,15 +97,6 @@ const  MyTabs=()=> {
 
               </View>
               <Person />
-             {/* <Image 
-             source={require('../../assets/footer_icons/skeleton.png')} 
-             resizeMode="contain"
-             style={{
-                width:25,
-                height:25,
-                tintColor:focused?'#F04E23':undefined,
-                
-             }} /> */}
              <Text style={{color:focused?'#F04E23':undefined}}>Account</Text>
           </View>
       )}} component={Account} />

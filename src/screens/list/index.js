@@ -1,18 +1,20 @@
-import { NavigationContainer } from "@react-navigation/native";
-import React from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import React, { useState } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import List_Categories from '../../components/Categories/list';
 
-const My_List =({navigation})=>{
+export default function List_Category({navigation}) {
+  
 
-    return(
-        <TouchableOpacity onPress={()=>navigation.navigate('review_cart')}>
-        <View style={{alignItems:'center',backgroundColor:'#fcc9c5',marginVertical:100,height:50,}}>
-            <Text style={{fontSize:40}}>MY list view</Text>
-            
-            
-        </View>
-        </TouchableOpacity>
-    )
+  return (
+    <View style={styles.container}>
+        
+        <List_Categories navigation={navigation} />
+    </View>
+  );
 }
 
-export default My_List
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+    },
+})
