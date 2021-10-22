@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text,Image,style,StyleSheet, ScrollView,TouchableWithoutFeedback,TouchableOpacity } from 'react-native';
-import {Card,Input, NativeBaseProvider} from 'native-base';
+import { View, Text,Image,style,StyleSheet, ScrollView,TouchableOpacity } from 'react-native';
+import {Card,Input, NativeBaseProvider,Button} from 'native-base';
 
 
 const MyAddress = () => {
@@ -24,27 +24,16 @@ const MyAddress = () => {
     return (
 
     // <View>
-    <NativeBaseProvider>
-    {/* <TouchableWithoutFeedback onPress={() => {
-        Keyboard.dismiss();
-      }}> */}
+
         
-          
-            <View style={{shadowColor:'rgba(0, 0, 0, 0.9)'}}>
-                
-                 <Input textAlign='center'
-                 maxLength={3}
-                 keyboardType='default'
-                                     mx="3"                  //form
-                                     borderRadius='2'
-                                    //  fontSize='12'
-                                     placeholder="Add a new address"
+        
+          <NativeBaseProvider>
+            <View style={{marginHorizontal:10,paddingTop:15}}>
 
-
-                InputLeftElement={
-                    <Image style={{}} source={require('../../assets/Account/add.png')}/>
-                }                     
-                />
+                <Button backgroundColor='#EDEDED' borderRadius='20' _text={{color:'#7E8090'}}
+                 leftIcon= {<Image resizeMode="contain"  source={require('../../assets/Account/add.png')} alt="list"/>}>
+                    Add a new address
+                </Button>
                 
             </View>
             
@@ -54,25 +43,27 @@ const MyAddress = () => {
                 return(
                 <Card key={item.id} style={{margin:5,borderRadius:1}}>
                 
-                        <View>
-                            <Text style={{marginHorizontal:7, fontWeight:'600',fontSize:16,paddingVertical:5}}>
+                        <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
+                            <Text style={{marginHorizontal:7, fontWeight:'600',fontSize:16,paddingVertical:8}}>
                                 {item.name}
                             </Text>
 
+                            <View>
+                            <Image source={item.options_icon} />
+                           </View>
+
                         </View>    
                     
-                    <View style={{flexDirection:'row'}}>
-                        <View style={{flexDirection:'row',alignItems:'center', paddingVertical:5}}> 
+                    <View style={{}}>
+                        <View> 
                         
-                            <Text style={{marginHorizontal:6}} >
+                            <Text style={{marginHorizontal:7}} >
                                 {item.content}
                             </Text>
 
                         </View>    
                     
-                        <View style={{marginLeft:15}}>
-                            <Image source={item.options_icon} />
-                        </View>
+                        
                     </View>
             
                 </Card>
@@ -80,9 +71,6 @@ const MyAddress = () => {
             })}
             </View>
             </View>
-            
-
-            {/* </TouchableWithoutFeedback> */}
             </NativeBaseProvider>
 // {/* </View> */}
 
