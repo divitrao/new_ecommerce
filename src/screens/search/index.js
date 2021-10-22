@@ -91,7 +91,7 @@ const Search =({navigation})=>{
 <View style={{backgroundColor:'white',flex:1}}>
 
 <View style={{flexDirection:'row',alignItems:'center',paddingTop:10}}>
-    <View style={{paddingRight:15}}>
+    <View style={{paddingRight:15,marginHorizontal:5}}>
     <TouchableOpacity style={{height:22,width:22}} onPress={navigation.goBack}>
                <Back />
                </TouchableOpacity>
@@ -130,8 +130,8 @@ const Search =({navigation})=>{
 </View>
 { ShowSearchedContent &&  <SearchCategoriesNavigator />}
 {!ShowCross &&
-<View style={{marginTop:40}}>
-            <Milk_Categories />
+<View style={{marginTop:40,marginHorizontal:15}}>
+            {/* <Milk_Categories /> */}
     {/* <SearchCategoriesNavigator test_string='hello' /> */}
 
 <View style={{paddingLeft:10}}>

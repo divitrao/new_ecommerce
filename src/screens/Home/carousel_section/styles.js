@@ -21,13 +21,14 @@ export default StyleSheet.create({
         height:5,
         width:5,
         borderRadius:5/2,
-        borderWidth:1,
-        borderColor:'black',
-        marginRight:4
+        // borderWidth:1,
+        // borderColor:'black',
+        marginRight:4,
+        backgroundColor:'orange'
     },
 
     activeIndicator:{
-        backgroundColor:'#C4C4C4',
+        backgroundColor:'orange',
         width:30
     },
 

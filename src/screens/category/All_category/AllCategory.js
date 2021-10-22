@@ -129,12 +129,14 @@ const Category_section = ({navigation})=>{
                 numColumns={3}
                 renderItem={({item})=>{
                     return(
-                        <TouchableOpacity onPress={()=>fetch_it(item.id)}>
-                        <View style={[styles.content_box,{backgroundColor:item.colors,borderColor:item.border_color}]} >
+                        
+                        // <View style={[styles.content_box,{backgroundColor:item.colors,borderColor:item.border_color}]} >
+                            <TouchableOpacity  style={[styles.content_box,{backgroundColor:item.colors,borderColor:item.border_color}]} onPress={()=>fetch_it(item.id)}>
                             <Image source={item.image}  />
                             <Text style={styles.content_text}>{item.content}</Text>
-                        </View>
-                        </TouchableOpacity>
+                            </TouchableOpacity>
+                        // </View>
+                        
                     )
                 }}
                 

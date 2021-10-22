@@ -15,7 +15,7 @@ const Home = ({navigation}) => {
             <Search_bar navigation={navigation} />
             </View>
             <Carousel_card />
-            <Shop />
+            <Shop navigation={navigation} />
             {/* <Footer /> */}
         </View>
     )
