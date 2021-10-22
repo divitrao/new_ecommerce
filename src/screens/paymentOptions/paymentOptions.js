@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text,Image, FlatList,StyleSheet, ScrollView } from 'react-native';
 import { ArrowBackIcon,Radio,Input,Button,Box, NativeBaseProvider } from "native-base";
 
-const PaymentOptions = () => {
+const PaymentOptions = ({navigation}) => {
 
     const icons = [
         {
@@ -70,15 +70,7 @@ const PaymentOptions = () => {
        <ScrollView>
  
        <View style={{flex:1,paddingHorizontal:10,backgroundColor:'white'}}>
-                {/* <View style= {styles.header}>
-                <Image 
-                            style={styles.sidearrow}
-                            
-                                source={require('../../assets/payment_screen/sidearrow.png')}
-                    />
-                        
-                    <Text style= {{"fontWeight":"400", fontSize:18, paddingLeft:10  }}> Payment Options </Text>
-                </View> */}
+                
 
             <NativeBaseProvider>
            <Box>
@@ -237,10 +229,7 @@ const PaymentOptions = () => {
                                         mx="3"
                                         borderRadius='1'
                                         placeholder="CVV"
-                                        // w={{
-                                        //     base: "100%",
-                                        //     md: "25%",
-                                        // }}
+                                      
                                         /></View>} 
                     <View style={{width:153,height:36}}>
                     <Button style={{width:'100%'}}
@@ -252,7 +241,7 @@ const PaymentOptions = () => {
                                                        <Image source={require('../../assets/payment_screen/pay_lock.png')} />
                                                     </View>
                                                     <View> 
-                                                            <Text style={{marginLeft:10}}> 
+                                                            <Text style={{marginLeft:10}} onPress={()=>navigation.navigate('order_placed')}> 
                                                             
                                                              Pay
                                                             </Text>
