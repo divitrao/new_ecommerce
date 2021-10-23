@@ -21,6 +21,9 @@ import Help from '../../assets/help/help.svg'
 import OrderPlaced from "../../screens/paymentOptions/orderplaced";
 import MyAddress from "../../screens/Account/my_address";
 import WalletPayments from "../../screens/paymentOptions/walletandPayments";
+import Product from '../../screens/Product'
+import Search from '../../assets/search_icon/search_svg.svg'
+import Share from '../../assets/share_icon/share.svg'
 const stacks = createNativeStackNavigator()
 const HomeStack = ()=>{
 
@@ -63,6 +66,20 @@ const HomeStack = ()=>{
                     <stacks.Screen name='order_placed' options={{headerShown:false}} component={OrderPlaced} />
                     <stacks.Screen name='myAddress' options={{headerTitle:'My Address'}} component={MyAddress} />
                     <stacks.Screen name='walletAndPayment' options={{headerTitle:'My Wallet & Payments'}} component={WalletPayments} />
+                    <stacks.Screen name='product'   options={{headerTitle:'',headerRight:()=>{
+                        return(
+                            <View style={{flexDirection:'row'}}>
+                                <View style={{marginRight:10}}>
+                                <Search />
+                                </View>
+                                <View>
+                                <Share />
+                                </View>
+                                
+
+                            </View>
+                        )
+                    }}} component={Product} />
             </stacks.Navigator>
         
     )
