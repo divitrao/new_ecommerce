@@ -186,38 +186,7 @@ const PaymentOptions = ({navigation}) => {
                       )
 
                   })}
-                    {/* <FlatList data={your_payment_methods} 
-                         renderItem= {({item}) => {
-                             return (
-                           
-                               <View style={{flexDirection:'row',paddingVertical:15, justifyContent:'space-between'}}>
-                               <View style={{flexDirection:'row',}}>
-                                    <Image style={styles.your_payment_methods} source={item.payment_type_image} />
-                                
-                
-                                    
-                                        <Text style={{marginLeft:10}}>
-                                        {item.detail}
-                                        </Text>
-                                </View>
-
-                                <View style={{marginRight:20}}>
-                                    <Radio.Group  value={value}
-                                                onChange={(nextValue) => {
-                                                    setValue(nextValue)
-                                                    // console.log(nextValue,'aytfhgsfuogdu')
-                                                }}>
-                                                    
-                                                <Radio value={item.id}>
-                                                <Text></Text>
-                                                    </Radio>
-                                    </Radio.Group>
-                                    </View>
-                                </View>
-                            
-
-                             )
-                                }} /> */}
+                    
 
                 
                 <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
@@ -254,41 +223,6 @@ const PaymentOptions = ({navigation}) => {
                 </View>
                 </View>
                     
-                
-                {/* {value !='' && <View style={styles.paybutton}>
-                                   { value == 2 && <Input textAlign='center'
-                                        mx="3"
-                                        borderRadius='1'
-                                        placeholder="CVV"
-                                        w={{
-                                            base: "30%",
-                                            md: "25%",
-                                        }}
-                                        />}
-
-                                  
-                                   <View style={{flex:1, flexDirection:'row',justifyContent:'space-between',borderWidth:1,width:153}}> 
-                                    
-                                            <Button style={{width:'100%'}}
-                                            //  width='5/6'
-                                                backgroundColor='#F04E23'>
-                                               
-                                              <View style={{flexDirection:'row'}}>
-                                                   <View> 
-                                                       <Image source={require('../../assets/payment_screen/pay_lock.png')} />
-                                                    </View>
-                                                    <View> 
-                                                            <Text style={{marginLeft:10}}> 
-                                                            
-                                                             Pay
-                                                            </Text>
-                                                    </View>
-                                            </View>
-                                            </Button>  
-
-                                    </View>  
-
-                    </View> } */}
           </Box>   
           </NativeBaseProvider>
 
@@ -322,30 +256,7 @@ const PaymentOptions = ({navigation}) => {
                     </View>
                            )
                        })}
-                    {/* <FlatList data={more_payment_methods} 
-                    renderItem= {({item}) => {
-                        return (
-                                <View style={{flexDirection:'row',justifyContent:'space-between',padding:10,alignItems:'center'}}>
-                            
-                                    <View style={{flexDirection:'row',alignItems:'center', padding:5}}> 
-                                        <Image style={{marginRight:10}} source={item.card_image} />
-                                    
-                                        <Text style={{}} >
-                                            {item.content}
-                                        </Text>
-            
-                                    </View>    
-                                    
-                                    <View style={{marginRight:25}}>
-                                        <Image source={item.arrow_image} />
-                                    </View>
-                                
-                            </View>
-                        
-
-                        )
-                    }} /> */}
-
+                
                    </View>
                     
 
