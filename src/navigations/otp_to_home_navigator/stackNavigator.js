@@ -14,6 +14,7 @@ import Category from "../../screens/category/vegetable";
 import TopTabNavigation from "../../components/customNavigation/topNavigator/topTabNavigator";
 import PaymentOptions from "../../screens/paymentOptions/paymentOptions";
 import SearchCategoriesNavigator from "../../components/customNavigation/topNavigator/searchCategoriesNavigator";
+import OrderPlaced from "../../screens/paymentOptions/orderplaced";
 const stacks = createNativeStackNavigator()
 const HomeStack = ()=>{
 
@@ -37,6 +38,8 @@ const HomeStack = ()=>{
                     })}   name="Vegetable_and_Dairy" component={TopTabNavigation} />
                     <stacks.Screen name="review_cart" options={{headerTitle:'Review Cart'}} component={Review_Cart} />
                     <stacks.Screen name='payment_option' options={{headerTitle:'Payment Option'}} component={PaymentOptions} />
+
+                    <stacks.Screen name='order_placed' options={{headerShown:false}} component={OrderPlaced} />
             </stacks.Navigator>
         
     )
