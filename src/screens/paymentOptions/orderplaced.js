@@ -3,13 +3,13 @@ import { View, Text,Image,style,StyleSheet, ScrollView,TouchableOpacity } from '
 
 
 const OrderPlaced = ({navigation}) => {
-    console.log(navigation)
+    // console.log(navigation)
 
 
 
     return (
 
-        <View style={{backgroundColor:'white'}}>
+        <View style={{backgroundColor:'white',flex:1}}>
             <ScrollView>
 
             <View style={styles.orderImage}>
@@ -30,7 +30,7 @@ const OrderPlaced = ({navigation}) => {
 
 
             <View>
-                <TouchableOpacity style={styles.touch} onPress={()=>navigation.navigate('')}>
+                <TouchableOpacity style={styles.touch} onPress={()=>navigation.navigate('track_order',{is_delivered:false})}>
                     <View style={styles.trackbutton}>
                         <Text style={styles.trackbuttonText}>Track Order</Text>
                     </View>

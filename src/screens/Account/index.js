@@ -32,14 +32,14 @@ const Account = ({navigation}) => {
                     relative_image:<Location />,
                     content:'My Address',
                     right_arrows:<Navigation_icon />,
-                    navigate_route:'account'
+                    navigate_route:'myAddress'
                 },
                 {
                     id:3,
                     relative_image:<Rupee />,
                     content:'My Wallet & Payments',
                     right_arrows:<Navigation_icon />,
-                    navigate_route:'account'
+                    navigate_route:'walletAndPayment'
                 },
                 {
                     id:4,

@@ -24,11 +24,11 @@ export default StyleSheet.create({
         // borderWidth:1,
         // borderColor:'black',
         marginRight:4,
-        backgroundColor:'orange'
+        backgroundColor:'#F04E23'
     },
 
     activeIndicator:{
-        backgroundColor:'orange',
+        backgroundColor:'#F04E23',
         width:30
     },
 

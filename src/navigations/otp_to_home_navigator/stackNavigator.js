@@ -18,6 +18,9 @@ import { Stack } from "native-base";
 import MyOrders from "../../screens/Account/MyOrder";
 import TrackOrder from "../../screens/TrackOrder";
 import Help from '../../assets/help/help.svg'
+import OrderPlaced from "../../screens/paymentOptions/orderplaced";
+import MyAddress from "../../screens/Account/my_address";
+import WalletPayments from "../../screens/paymentOptions/walletandPayments";
 const stacks = createNativeStackNavigator()
 const HomeStack = ()=>{
 
@@ -57,6 +60,9 @@ const HomeStack = ()=>{
                             )
 
                     }}} component={TrackOrder} />
+                    <stacks.Screen name='order_placed' options={{headerShown:false}} component={OrderPlaced} />
+                    <stacks.Screen name='myAddress' options={{headerTitle:'My Address'}} component={MyAddress} />
+                    <stacks.Screen name='walletAndPayment' options={{headerTitle:'My Wallet & Payments'}} component={WalletPayments} />
             </stacks.Navigator>
         
     )

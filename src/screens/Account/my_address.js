@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text,Image,style,StyleSheet, ScrollView,TouchableOpacity } from 'react-native';
-import {Card,Input, NativeBaseProvider,Button} from 'native-base';
+import {Card,Input, NativeBaseProvider,Button, extendTheme} from 'native-base';
 
 
 const MyAddress = () => {
@@ -23,13 +23,15 @@ const MyAddress = () => {
         }
     ]
 
+
     return (
 
     // <View>
 
         
-        
+            
           <NativeBaseProvider>
+              <View style={{backgroundColor:'white',flex:1}}>
             <View style={{marginHorizontal:10,paddingTop:15}}>
 
                 <Button backgroundColor='#EDEDED' borderRadius='20' _text={{color:'#7E8090'}}
@@ -43,7 +45,7 @@ const MyAddress = () => {
         <View style={{marginTop:25}}>
             {Address.map((item)=>{
                 return(
-                <Card key={item.id} style={{margin:5,borderRadius:1}}>
+                <Card key={item.id} style={{marginHorizontal:5,marginBottom:15}} shadow={6} _light={{ backgroundColor: 'rgba(255, 255, 255, 1)' }}>
                 
                         <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
                             <View style={{flexDirection:'row',alignItems:'center'}}>
@@ -85,8 +87,10 @@ const MyAddress = () => {
             })}
             </View>
             </View>
+            </View>
             </NativeBaseProvider>
 // {/* </View> */}
+
 
     )
 };
@@ -106,3 +110,4 @@ const styles = StyleSheet.create ({
 
 
 export default MyAddress;
+
