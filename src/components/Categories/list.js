@@ -133,7 +133,9 @@ function Basic({navigation}) {
 
   const renderItem = ({ item, index }) => (
     <Box height="auto" backgroundColor="white" flex="1"> 
-      <Pressable onPress={() => console.log('You touched me')} bg="white">
+     <Pressable onPress={() => navigation.navigate('product',{navigation:navigation})} bg="white">
+
+
         <Box
             borderWidth="1"
             borderRadius="5"
