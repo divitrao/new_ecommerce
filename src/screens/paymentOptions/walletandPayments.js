@@ -22,14 +22,7 @@ const WalletPayments = ({navigation}) => {
     return(
      <NativeBaseProvider>
         <View>
-            <Card style={styles.card}  
-            bg={{
-        linearGradient: {
-          colors: ["lightBlue.300", "violet.800"],
-          start: [0, 0],
-          end: [1, 0],
-        },
-      }} >
+            <Card style={styles.card} >
 
             {/* <LinearGradient 
                     style={styles.gradient} 
@@ -166,7 +159,7 @@ const styles= StyleSheet.create ({
         width:360,
         //  height:90,
         alignSelf:'center',
-        // backgroundColor:'rgba(240, 78, 35, 0.1)',
+        backgroundColor:'rgba(240, 78, 35, 0.1)',
 
         
     },
