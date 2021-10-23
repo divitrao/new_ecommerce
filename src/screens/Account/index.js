@@ -13,7 +13,7 @@ import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar, Touchable
  import Navigation_icon from '../../assets/Account/navigate_icon.svg'
 
 
-const Account = () => {
+const Account = ({navigation}) => {
 
     
     const DATA = [
@@ -24,31 +24,36 @@ const Account = () => {
                     id:1,
                     relative_image:<Cart />,
                     content:'My Orders',
-                    right_arrows:<Navigation_icon />
+                    right_arrows:<Navigation_icon />,
+                    navigate_route:'my_order'
                 },
                 {
                     id:2,
                     relative_image:<Location />,
                     content:'My Address',
-                    right_arrows:<Navigation_icon />
+                    right_arrows:<Navigation_icon />,
+                    navigate_route:'myAddress'
                 },
                 {
                     id:3,
                     relative_image:<Rupee />,
                     content:'My Wallet & Payments',
-                    right_arrows:<Navigation_icon />
+                    right_arrows:<Navigation_icon />,
+                    navigate_route:'walletAndPayment'
                 },
                 {
                     id:4,
                     relative_image:<Returns />,
                     content:'Returns & Refunds',
-                    right_arrows:<Navigation_icon />
+                    right_arrows:<Navigation_icon />,
+                    navigate_route:'account'
                 },
                 {
                     id:5,
                     relative_image:<Bell />,
                     content:'Notifications',
-                    right_arrows:<Navigation_icon />
+                    right_arrows:<Navigation_icon />,
+                    navigate_route:'account'
                 },
             ]
         },
@@ -59,13 +64,15 @@ const Account = () => {
                     id:1,
                     relative_image:<Share />,
                     content:'Share & Earn',
-                    right_arrows:<Navigation_icon />
+                    right_arrows:<Navigation_icon />,
+                    navigate_route:'account'
                 },
                 {
                     id:2,
                     relative_image:<Rupee/>,
                     content:'Offer & Coupon Zone',
-                    right_arrows:<Navigation_icon />
+                    right_arrows:<Navigation_icon />,
+                    navigate_route:'account'
                 },
             ]
         },
@@ -77,13 +84,15 @@ const Account = () => {
                     id:1,
                     relative_image:<Support />,
                     content:'Customer Support',
-                    right_arrows:<Navigation_icon />
+                    right_arrows:<Navigation_icon />,
+                    navigate_route:'account'
                 },
                 {
                     id:2,
                     relative_image:<Star />,
                     content:'Rate Us',
-                    right_arrows:<Navigation_icon />
+                    right_arrows:<Navigation_icon />,
+                    navigate_route:'account'
                 },
 
                 'About',
@@ -99,7 +108,7 @@ const Account = () => {
 
 const Item = ({ title }) => (
     <View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate(title.navigate_route)}>
    {title.id && <View style={[styles.item,{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}]}>
           
               <View style={{flexDirection:'row'}}>
@@ -152,6 +161,7 @@ const Item = ({ title }) => (
                    </View>
              </View>
         </View>
+        
       <SectionList
       showsVerticalScrollIndicator={false}
         sections={DATA}

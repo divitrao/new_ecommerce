@@ -30,7 +30,7 @@ const Review_Cart = ({navigation}) =>{
     const DELIVERY_CHARGES = 55
     const TAXES = 60.12
 
-    const cart = [
+    const  cart = [
         {
             id:1,
             item_name:'Nandini Tonned Milk',
