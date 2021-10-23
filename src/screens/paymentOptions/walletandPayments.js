@@ -97,11 +97,11 @@ const WalletPayments = ({navigation}) => {
                     </Text>
 
  
-                    <Card>
+                    
                         {your_payment_methods.map((item)=>{
                             return(
                                        
-
+                                <Card>
                                 <View style={{flexDirection:'row', justifyContent:'space-between',marginHorizontal:10}}>
                                         <View key={item.id} style={{flexDirection:'row',paddingVertical:13, justifyContent:'space-between'}}>
                                                 <View style={{flexDirection:'row',}}>
@@ -126,13 +126,13 @@ const WalletPayments = ({navigation}) => {
 
 
 
-
+                                </Card> 
                                         
                             )
 
                         })}
                         
-                        </Card> 
+                        
                 
                
 
