@@ -1,7 +1,7 @@
 import React from "react";
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import OtpScreen from "../../screens/otp_verification/otp_screen";
-
+import { View, Text } from "react-native";
 import MyTabs from "../bottom_tab_navigator";
 import MobileVerification from "../../screens/MobileOtp/mobileVerification";
 import Namedetails from "../../screens/names/namedetails";
@@ -14,6 +14,10 @@ import Category from "../../screens/category/vegetable";
 import TopTabNavigation from "../../components/customNavigation/topNavigator/topTabNavigator";
 import PaymentOptions from "../../screens/paymentOptions/paymentOptions";
 import SearchCategoriesNavigator from "../../components/customNavigation/topNavigator/searchCategoriesNavigator";
+import { Stack } from "native-base";
+import MyOrders from "../../screens/Account/MyOrder";
+import TrackOrder from "../../screens/TrackOrder";
+import Help from '../../assets/help/help.svg'
 const stacks = createNativeStackNavigator()
 const HomeStack = ()=>{
 
@@ -37,6 +41,22 @@ const HomeStack = ()=>{
                     })}   name="Vegetable_and_Dairy" component={TopTabNavigation} />
                     <stacks.Screen name="review_cart" options={{headerTitle:'Review Cart'}} component={Review_Cart} />
                     <stacks.Screen name='payment_option' options={{headerTitle:'Payment Option'}} component={PaymentOptions} />
+                    <stacks.Screen name='my_order' options={{headerTitle:'My Order'}} component={MyOrders} />
+                    <stacks.Screen name='track_order' options={{headerTitle:'',headerRight:()=>{
+
+                            return(
+                                <View style={{flexDirection:'row',alignItems:'center'}}>
+                                    <View style={{marginRight:3}}>
+                                        <Help />
+                                    </View>
+                                    <View>
+                                        <Text style={{color:'#7C7C7C'}}>Help</Text>
+                                    </View>
+
+                                </View>
+                            )
+
+                    }}} component={TrackOrder} />
             </stacks.Navigator>
         
     )
