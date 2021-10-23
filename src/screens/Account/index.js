@@ -32,22 +32,14 @@ const Account = ({navigation}) => {
                     relative_image:<Location />,
                     content:'My Address',
                     right_arrows:<Navigation_icon />,
-<<<<<<< HEAD
-                    navigate_route:'account'
-=======
                     navigate_route:'myAddress'
->>>>>>> 4b59b30dc1895e38126d5a97a35a483dc37d693f
                 },
                 {
                     id:3,
                     relative_image:<Rupee />,
                     content:'My Wallet & Payments',
                     right_arrows:<Navigation_icon />,
-<<<<<<< HEAD
-                    navigate_route:'account'
-=======
                     navigate_route:'walletAndPayment'
->>>>>>> 4b59b30dc1895e38126d5a97a35a483dc37d693f
                 },
                 {
                     id:4,

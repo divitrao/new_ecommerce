@@ -21,21 +21,9 @@ const WalletPayments = ({navigation}) => {
     
     return(
      <NativeBaseProvider>
-        <View>
-            <Card style={styles.card} >
+        <View style={{ backgroundColor:'white',flex:1, paddingHorizontal:10}}>
+            <Card width='100%'  shadow ={0} style={styles.card} >
 
-            {/* <LinearGradient 
-                    style={styles.gradient} 
-                    locations={[0, 1.0]} 
-                    colors={['#F04E23', '#FFBB0D']}
-            /> */}
-            {/* bg={{
-                        linearGradient: {
-                        colors: ['#F04E23', '#FFBB0D'],
-                        start: [0, 0],
-                        end: [1, 0],
-                        },
-                    }} */}
               <View style={{flexDirection:'row'}}>
                  
                   <View>
@@ -51,7 +39,7 @@ const WalletPayments = ({navigation}) => {
 
                         </View>   
                 
-                        <View style={{flexDirection:'row',width:38, height:19,marginVertical:4}}>
+                        <View style={{flexDirection:'row',width:38, height:17,marginVertical:4}}>
                             <Image style={{tintColor:'#F04E23'}} source={require('../../assets/images/currency_b.png')} />
                             
                             <Text style={{color:'#F04E23',fontWeight:'bold'}}>
@@ -92,8 +80,8 @@ const WalletPayments = ({navigation}) => {
             
         <View>
             <View>
-                    <Text style={{fontWeight:"500", fontSize:10, padding:15,marginTop:15,paddingVertical:20}}>
-                            Your Payment Method
+                    <Text style={{fontWeight:"500", fontSize:14, padding:15,marginTop:15,paddingVertical:20}}>
+                            Your payment method
                     </Text>
 
  
@@ -101,15 +89,16 @@ const WalletPayments = ({navigation}) => {
                         {your_payment_methods.map((item)=>{
                             return(
                                        
-                                <Card>
+                                <Card   key={item.id} style={{elevation:5}}>
                                 <View style={{flexDirection:'row', justifyContent:'space-between',marginHorizontal:10}}>
-                                        <View key={item.id} style={{flexDirection:'row',paddingVertical:13, justifyContent:'space-between'}}>
+                                        <View style={{flexDirection:'row',paddingVertical:12, justifyContent:'space-between'}}>
                                                 <View style={{flexDirection:'row',}}>
-                                                    <Image style={styles.your_payment_methods} source={item.payment_type_image} />
-                                                
+                                                    <View style={{width:'5%'}}>
+                                                       <Image style={{}} source={item.payment_type_image} />
+                                                    </View>
 
                                                     
-                                                        <Text style={{marginLeft:10}}>
+                                                        <Text style={{marginLeft:35}}>
                                                         {item.detail}
                                                         </Text>
                                                 </View>
@@ -120,12 +109,6 @@ const WalletPayments = ({navigation}) => {
 
 
                                 </View>
-
-                                    
-
-
-
-
                                 </Card> 
                                         
                             )
@@ -153,21 +136,14 @@ const WalletPayments = ({navigation}) => {
 const styles= StyleSheet.create ({
     
     card:{
-        marginTop:10,
-        // marginHorizontal:50,
+        marginTop:25,
         // width:328,
-        width:360,
+        
         //  height:90,
         alignSelf:'center',
         backgroundColor:'rgba(240, 78, 35, 0.1)',
 
         
-    },
-    your_payment_methods:{
-        // marginHorizontal:20,
-        width: 34,
-        height: 24,
-        // marginLeft:10
     },
 
 })
