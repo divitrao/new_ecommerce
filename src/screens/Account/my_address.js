@@ -4,6 +4,8 @@ import {Card,Input, NativeBaseProvider,Button} from 'native-base';
 
 
 const MyAddress = () => {
+    
+    const [home, setHome] = useState(true)
 
 
     const Address = [
@@ -44,9 +46,21 @@ const MyAddress = () => {
                 <Card key={item.id} style={{margin:5,borderRadius:1}}>
                 
                         <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
-                            <Text style={{marginHorizontal:7, fontWeight:'600',fontSize:16,paddingVertical:8}}>
-                                {item.name}
-                            </Text>
+                            <View style={{flexDirection:'row',alignItems:'center'}}>
+                                <Text style={{marginHorizontal:7, fontWeight:'600',fontSize:16,paddingVertical:8}}>
+                                    {item.name}
+                                </Text>
+
+                                {item.name=='Home' && 
+                                                        <View style={{borderWidth:1,paddingHorizontal:3,borderRadius:20,borderColor:'#F04E23',backgroundColor:'rgba(240, 78, 35, 0.1)'}}>
+                                                            <Text style={{marginHorizontal:5,color:'#F04E23'}}>
+                                                                Default
+                                                            </Text>
+
+                                                        </View> 
+                                                    }
+                                 
+                            </View>
 
                             <View>
                             <Image source={item.options_icon} />
