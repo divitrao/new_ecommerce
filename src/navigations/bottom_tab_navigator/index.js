@@ -6,13 +6,12 @@ import Category from '../../screens/category';
 import Account from '../../screens/Account';
 import My_List from '../../screens/list';
 import Search from '../../screens/search';
-// import TopTabNavigation from '../../components/customNavigation/topNavigator/topTabNavigator';
 import Search_svg from '../../assets/search_icon/search_svg.svg' 
 import Frames from '../../assets/footer_icons/Frame.svg'
 import Pad from '../../assets/footer_icons/pad.svg'
 import Person from '../../assets/footer_icons/person.svg'
 import Home_Svg from '../../assets/footer_icons/home.svg'
-import myListNavigator from '../../components/customNavigation/topNavigator/myListNavigator';
+import myListNavigator from '../../navigations/topNavigator/myListNavigator';
 import Search_icon from '../../assets/search_icon/search_svg.svg'
 // import { SearchIcon } from 'native-base';
 const Tab = createBottomTabNavigator();

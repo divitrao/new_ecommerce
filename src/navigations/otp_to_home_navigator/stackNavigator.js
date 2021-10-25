@@ -11,9 +11,9 @@ import Veggies from "../../screens/category/vegetable";
 import Custom_header from "../../screens/Custom_Headers";
 import Review_Cart from "../../screens/reviewCart/reviewCart";
 import Category from "../../screens/category/vegetable";
-import TopTabNavigation from "../../components/customNavigation/topNavigator/topTabNavigator";
+import TopTabNavigation from '../../navigations/topNavigator/topTabNavigator';
 import PaymentOptions from "../../screens/paymentOptions/paymentOptions";
-import SearchCategoriesNavigator from "../../components/customNavigation/topNavigator/searchCategoriesNavigator";
+import SearchCategoriesNavigator from "../../navigations/topNavigator/searchCategoriesNavigator";
 import { Stack } from "native-base";
 import MyOrders from "../../screens/Account/MyOrder";
 import TrackOrder from "../../screens/TrackOrder";
@@ -65,7 +65,7 @@ const HomeStack = ()=>{
                     <stacks.Screen name='order_placed' options={{headerShown:false}} component={OrderPlaced} />
                     <stacks.Screen name='myAddress' options={{headerTitle:'My Address'}} component={MyAddress} />
                     <stacks.Screen name='walletAndPayment' options={{headerTitle:'My Wallet & Payments'}} component={WalletPayments} />
-                    <stacks.Screen name='product' options={({route})=>{return({headerRight:()=>{
+                    <stacks.Screen name='product' options={({route})=>{return({headerTitle:'',headerRight:()=>{
                         
                         return(
                             <View style={{flexDirection:'row'}}>

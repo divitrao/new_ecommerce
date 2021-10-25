@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Milk_Category from '../../../screens/category/vegetable/milk_categories';
+import List_Category from '../../screens/list';
 
 
-function SearchCategoriesNavigator({test_string}){
-  console.log(test_string)
+function myListNavigator(){
   const MaterialTopTabs = createMaterialTopTabNavigator();
 
   return(
@@ -20,9 +19,9 @@ function SearchCategoriesNavigator({test_string}){
             
             
           }} style={{backgroundColor:'#ff800',paddingRight:3}}>
-              <MaterialTopTabs.Screen name="all" component={Milk_Category} options={{title:"All",}} />
-              <MaterialTopTabs.Screen name="milk_prods" component={Milk_Category} options={{title:"Milk & Milk products"}} />
-              <MaterialTopTabs.Screen name="vegan_prods" component={Milk_Category} options={{title:"Vegan Products"}} />
+              <MaterialTopTabs.Screen name="recommend" component={List_Category} options={{title:"Recommendation",}} />
+              <MaterialTopTabs.Screen name="frequently" component={List_Category} options={{title:"Frequently bought"}} />
+              <MaterialTopTabs.Screen name="my_list" component={List_Category} options={{title:"My list"}} />
             
 
 
@@ -31,4 +30,4 @@ function SearchCategoriesNavigator({test_string}){
 }
 
 
-export default SearchCategoriesNavigator
+export default myListNavigator
