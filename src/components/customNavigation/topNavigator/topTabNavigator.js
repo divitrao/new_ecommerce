@@ -1,9 +1,10 @@
 
 import React, { useState } from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Category from '../../screens/category/vegetable/index';
-import Milk_Category from '../../screens/category/vegetable/milk_categories'
-import List_Category from '../../screens/list';
+import Home from '../../../screens/MobileOtp/Categories';
+import Category from '../../../screens/category/vegetable/index';
+import Milk_Category from '../../../screens/category/vegetable/milk_categories'
+import List_Category from '../../../screens/list';
 
 
 function TopTabNavigation(){

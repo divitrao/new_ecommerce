@@ -5,7 +5,6 @@ export default StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         backgroundColor:'#FBFBFB',
-        // width:328,
         alignSelf:'stretch',
         height:48,
         borderWidth:1,

@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
-import { FlatList, Text, TouchableOpacity, View, StyleSheet, SafeAreaView, Pressable, ScrollView } from "react-native";
+import { FlatList, Text, TouchableOpacity, View,  SafeAreaView, Pressable, ScrollView } from "react-native";
 import { useReducer,useState} from "react";
 import Location_icon from '../../assets/location_icon/location.svg'
-import Atta from '../../assets/cart_product/atta.svg'
-import Coconut from '../../assets/cart_product/coconut.svg'
-import Milk from '../../assets/cart_product/milk.svg'
 import Add from '../../assets/increment_decrement/add.svg'
 import Minus from '../../assets/increment_decrement/minus.svg'
 import Percent from '../../assets/percent/percent.svg'
 import Right_Arrow from '../../assets/arrows/right_arrow.svg'
 import categoriesStyles from '../../components/Categories/styles/categories_styles';
+import { frequently_bought_item, best_offers, cart } from "../../api/data";
 import {
     Select,
     VStack,
@@ -17,9 +15,10 @@ import {
     Center,
     NativeBaseProvider,
     extendTheme,HStack,Image,  AddIcon,
-    MinusIcon,
-    Input, Badge, Button
+    Badge, Button
   } from "native-base"
+  import styles from './styles'
+
 
 const Review_Cart = ({navigation}) =>{
 
@@ -30,172 +29,7 @@ const Review_Cart = ({navigation}) =>{
     const DELIVERY_CHARGES = 55
     const TAXES = 60.12
 
-    const  cart = [
-        {
-            id:1,
-            item_name:'Nandini Tonned Milk',
-            quantity:1,
-            original_price:19,
-            discounted_price:19,
-            per_quantity:3,
-            measurement_unit:'litre',
-            picture:<Milk />,
-            disable:false
-        },
-        {
-            id:2,
-            item_name:'Ashirwaad select atta',
-            quantity:1,
-            original_price:3315,
-            discounted_price:2293,
-            per_quantity:20,
-            measurement_unit:'weight',
-            picture:<Atta />,
-            disable:false
-        },
-        {
-            id:3,
-            item_name:'coconut',
-            quantity:1,
-            original_price:50,
-            discounted_price:40,
-            per_quantity:2,
-            measurement_unit:'piece',
-            picture:<Coconut />,
-            disable:false
-        },
-        {
-            id:4,
-            item_name:'coconut',
-            quantity:1,
-            original_price:50,
-            discounted_price:40,
-            per_quantity:2,
-            measurement_unit:'piece',
-            picture:<Coconut />,
-            disable:false
-        },
-        {
-            id:5,
-            item_name:'coconut',
-            quantity:1,
-            original_price:50,
-            discounted_price:40,
-            per_quantity:2,
-            measurement_unit:'piece',
-            picture:<Coconut />,
-            disable:false
-        },
-        {
-            id:6,
-            item_name:'Nandini Tonned Milk',
-            quantity:1,
-            original_price:19,
-            discounted_price:19,
-            per_quantity:3,
-            measurement_unit:'litre',
-            picture:<Milk />,
-            disable:false
-        },
-    ]
     
-    
-
-    const frequently_bought_item = [
-        {
-            id:1,
-            image: require('../../assets/images/image_2.png'),
-            content: 'Aashirvaad Superior MP Wheat Atta',
-            colors:'#53B175',
-            actual_amount: 109,
-            discount_amount: 98,
-            discount_perc: '10%',
-            quantity:[{key:'2_1',value:'1 kg'},{key:'2_2',value:'2 kg'},{key:'2_3',value:'3 kg'},{key:'2_4',value:'4 kg'}],
-            rating_perc: 4.3,
-            rating_count: 62191,
-            is_vegan: true,
-            selectedDropdownValue: '1 kg',
-            cartValue: 0,
-        },
-        {
-            id:2,
-            image: require('../../assets/images/image_2.png'),
-            content: 'Aashirvaad Superior MP Wheat Atta',
-            colors:'#53B175',
-            actual_amount: 109,
-            discount_amount: 98,
-            discount_perc: '10%',
-            quantity:[{key:'2_1',value:'1 kg'},{key:'2_2',value:'2 kg'},{key:'2_3',value:'3 kg'},{key:'2_4',value:'4 kg'}],
-            rating_perc: 4.3,
-            rating_count: 62191,
-            is_vegan: true,
-            selectedDropdownValue: '1 kg',
-            cartValue: 0,
-        },
-        {
-            id:3,
-            image: require('../../assets/images/image_2.png'),
-            content: 'Aashirvaad Superior MP Wheat Atta',
-            colors:'#53B175',
-            actual_amount: 109,
-            discount_amount: 98,
-            discount_perc: '10%',
-            quantity:[{key:'2_1',value:'1 kg'},{key:'2_2',value:'2 kg'},{key:'2_3',value:'3 kg'},{key:'2_4',value:'4 kg'}],
-            rating_perc: 4.3,
-            rating_count: 62191,
-            is_vegan: true,
-            selectedDropdownValue: '1 kg',
-            cartValue: 0,
-        },
-    ]
-
-    const best_offers = [
-        {
-            id:1,
-            image: require('../../assets/images/image_2.png'),
-            content: 'Aashirvaad Superior MP Wheat Atta',
-            colors:'#53B175',
-            actual_amount: 109,
-            discount_amount: 98,
-            discount_perc: '10%',
-            quantity:[{key:'2_1',value:'1 kg'},{key:'2_2',value:'2 kg'},{key:'2_3',value:'3 kg'},{key:'2_4',value:'4 kg'}],
-            rating_perc: 4.3,
-            rating_count: 62191,
-            is_vegan: true,
-            selectedDropdownValue: '1 kg',
-            cartValue: 0,
-        },
-        {
-            id:2,
-            image: require('../../assets/images/image_2.png'),
-            content: 'Aashirvaad Superior MP Wheat Atta',
-            colors:'#53B175',
-            actual_amount: 109,
-            discount_amount: 98,
-            discount_perc: '10%',
-            quantity:[{key:'2_1',value:'1 kg'},{key:'2_2',value:'2 kg'},{key:'2_3',value:'3 kg'},{key:'2_4',value:'4 kg'}],
-            rating_perc: 4.3,
-            rating_count: 62191,
-            is_vegan: true,
-            selectedDropdownValue: '1 kg',
-            cartValue: 0,
-        },
-        {
-            id:3,
-            image: require('../../assets/images/image_2.png'),
-            content: 'Aashirvaad Superior MP Wheat Atta',
-            colors:'#53B175',
-            actual_amount: 109,
-            discount_amount: 98,
-            discount_perc: '10%',
-            quantity:[{key:'2_1',value:'1 kg'},{key:'2_2',value:'2 kg'},{key:'2_3',value:'3 kg'},{key:'2_4',value:'4 kg'}],
-            rating_perc: 4.3,
-            rating_count: 62191,
-            is_vegan: true,
-            selectedDropdownValue: '1 kg',
-            cartValue: 0,
-        },
-    ]
 
     
 
@@ -227,7 +61,6 @@ const Review_Cart = ({navigation}) =>{
             let disabled
             const updated_cart = state.item.map((CurrElem)=>{
                 if(CurrElem.id===action.payload){
-                    // console.log(CurrElem.quantity)
                     if(CurrElem.quantity==1){
                         disabled = true
                     }
@@ -249,7 +82,6 @@ const Review_Cart = ({navigation}) =>{
     let [state, dispatch] = useReducer(reducer,DefaultState)
 
     const increment = (id)=>{
-        // console.log('incree',id)
         dispatch({
             type:'INCREMENT',
             payload:id
@@ -279,13 +111,10 @@ const Review_Cart = ({navigation}) =>{
         )
     }
 
-    // const total_price = Total_Price()
-   
-
     return(
         
         
-        <View style={{paddingLeft:5,paddingRight:5,flex:1,backgroundColor:'white'}}>
+        <View style={styles.main_view}>
             <SafeAreaView style={{flex:1}} >
             <ScrollView>
             <View style={{flexDirection:'row',justifyContent:'space-between',paddingTop:10}}>
@@ -315,7 +144,7 @@ const Review_Cart = ({navigation}) =>{
             <View>
                 {state.item.map((item)=>{
                     return(
-                        <View key={item.id} style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',paddingTop:10}}>
+                        <View key={item.id} style={styles.item_list}>
                             <View>
                                 {item.picture}
                             </View>
@@ -345,48 +174,12 @@ const Review_Cart = ({navigation}) =>{
                         </View>
                     )
                 })}
-                {/* <FlatList
-                data={state.item}
-                renderItem={({item})=>{
-                    
-                    return(
-                        <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',paddingTop:10}}>
-                            <View>
-                                {item.picture}
-                            </View>
-                            <View style={{width:100}}>
-                                <View>
-                                    <Text style={{fontSize:15}} numberOfLines={1}>{item.item_name}</Text>
-                                </View>
-                                <View>
-                                    {item.measurement_unit=='litre' && <Text style={styles.quantity_bought}>{item.per_quantity} L </Text>}
-                                    {item.measurement_unit=='weight' && <Text style={styles.quantity_bought}>{item.per_quantity} kg </Text>}
-                                    {item.measurement_unit=='piece' && <Text style={styles.quantity_bought}>{item.per_quantity} piece </Text>}
-                                </View>
-                            </View>
-                            <View style={{flexDirection:'row'}}>
-                                <Pressable disabled={item.disable} onPress={()=>decrement(item.id)}><View style={styles.button_decrement}><Text><Minus /></Text></View></Pressable>
-                                <View style={styles.quantity}><Text style={{textAlign:'center'}}>{item.quantity}</Text></View>
-                                <Pressable  onPress={()=>increment(item.id)}><View style={styles.button_increment}><Add/></View></Pressable>
-                            </View>
-                            <View style={{width:60}}>
-                                <View>
-                                <Text style={{fontSize:20, textAlign:'right'}}>₹{item.discounted_price*item.quantity}</Text>
-                                </View>
-                                { item.discounted_price!=item.original_price && <View>
-                                    <Text style={{textDecorationLine:'line-through',textAlign:'right',color:'grey'}}>₹{item.original_price*item.quantity}</Text>
-                                </View>  }
-                            </View>
-                        </View>
-                    )
-                }}
-                /> */}
             </View>
             
            
 
             
-            <View style={{flexDirection:'row-reverse',marginTop:10,backgroundColor:'rgba(229, 229, 229,0.4)',height:50,alignItems:'center'}}>
+            <View style={styles.add_more_sign}>
                 <TouchableOpacity>
                     <Text style={{fontSize:15,color:'#24AF8E'}}>
                         + Add More
@@ -395,7 +188,7 @@ const Review_Cart = ({navigation}) =>{
             </View>
 
 
-            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginTop:19}}>
+            <View style={styles.percent_sign}>
                 <View style={{flexDirection:'row',alignItems:'center'}}>
                     <View>
                         <Percent />
@@ -427,11 +220,8 @@ const Review_Cart = ({navigation}) =>{
                         data={frequently_bought_item}
                         renderItem={({item})=>{
                             return(
-                                // <View style={styles.boxes}>
-                                //     <Text>{item.id}</Text>
-                                // </View>
                                 <NativeBaseProvider>
-                                <HStack space={6} style={{paddingHorizontal:10,borderWidth:1,justifyContent:'space-around',marginHorizontal:6,borderRadius:5,borderColor:'#E2E2E2'}}>
+                                <HStack space={6} style={styles.h_stack}>
                 <Image source={item.image} style={categoriesStyles.image} alt="Image description"/>
                     <VStack style={{width:'70%',padding:5}}>
                         <View style={{flexDirection:'row',}}>
@@ -467,26 +257,6 @@ const Review_Cart = ({navigation}) =>{
 
                         <VStack alignItems="center" space={4}>
                         
-                        {/* <Select
-                          selectedValue={item.selectedDropdownValue}
-                          minWidth="89"
-                          accessibilityLabel="Choose Service"
-                          _selectedItem={{
-                            bg: "teal.600",
-                            endIcon: <CheckIcon size="5" />,
-                          }}
-                          style={{height:30}}
-                          mt={1}
-                          
-                          onValueChange={(itemValue) => {
-                         
-                            changeHandler(item.id,itemValue)}}
-                        > 
-                          {item.quantity && item.quantity.map(option => {
-                              return (<Select.Item key={option.key} label={option["value"]} value={option.value} /> );
-                          })}
-                          
-                        </Select> */}
                       </VStack>
                          
                         </View>
@@ -501,17 +271,8 @@ const Review_Cart = ({navigation}) =>{
                         ADD
                         </Button>
                         
-                        </View> 
-                      
-
-                       
-                        
-                
-
                         </View>
-                 
-
-                         
+                        </View>
                     </VStack>
                     </HStack>
                     </NativeBaseProvider>
@@ -535,9 +296,6 @@ const Review_Cart = ({navigation}) =>{
                         data={best_offers}
                         renderItem={({item})=>{
                             return(
-                                // <View style={styles.boxes}>
-                                //     <Text>{item.id}</Text>
-                                // </View>
                                 <NativeBaseProvider>
                                 <HStack space={6} style={{paddingHorizontal:10,borderWidth:1,justifyContent:'space-around',marginHorizontal:6,borderRadius:5,borderColor:'#E2E2E2'}}>
                 <Image source={item.image} style={categoriesStyles.image} alt="Image description"/>
@@ -574,27 +332,6 @@ const Review_Cart = ({navigation}) =>{
                         <View style={[{flex:1,flexDirection:'row',width:1,}]}>
 
                         <VStack alignItems="center" space={4}>
-                        
-                        {/* <Select
-                          selectedValue={item.selectedDropdownValue}
-                          minWidth="89"
-                          accessibilityLabel="Choose Service"
-                          _selectedItem={{
-                            bg: "teal.600",
-                            endIcon: <CheckIcon size="5" />,
-                          }}
-                          style={{height:30}}
-                          mt={1}
-                          
-                          onValueChange={(itemValue) => {
-                         
-                            changeHandler(item.id,itemValue)}}
-                        > 
-                          {item.quantity && item.quantity.map(option => {
-                              return (<Select.Item key={option.key} label={option["value"]} value={option.value} /> );
-                          })}
-                          
-                        </Select> */}
                       </VStack>
                          
                         </View>
@@ -610,16 +347,7 @@ const Review_Cart = ({navigation}) =>{
                         </Button>
                         
                         </View> 
-                      
-
-                       
-                        
-                
-
                         </View>
-                 
-
-                         
                     </VStack>
                     </HStack>
                     </NativeBaseProvider>
@@ -643,11 +371,8 @@ const Review_Cart = ({navigation}) =>{
                         data={best_offers}
                         renderItem={({item})=>{
                             return(
-                                // <View style={styles.boxes}>
-                                //     <Text>{item.id}</Text>
-                                // </View>
                                 <NativeBaseProvider>
-                                <HStack space={6} style={{paddingHorizontal:10,borderWidth:1,justifyContent:'space-around',marginHorizontal:6,borderRadius:5,borderColor:'#E2E2E2'}}>
+                                <HStack space={6} style={styles.h_stack_recommendation}>
                 <Image source={item.image} style={categoriesStyles.image} alt="Image description"/>
                     <VStack style={{width:'70%',padding:5}}>
                         <View style={{flexDirection:'row',}}>
@@ -682,31 +407,8 @@ const Review_Cart = ({navigation}) =>{
                         <View style={[{flex:1,flexDirection:'row',width:1,}]}>
 
                         <VStack alignItems="center" space={4}>
-                        
-                        {/* <Select
-                          selectedValue={item.selectedDropdownValue}
-                          minWidth="89"
-                          accessibilityLabel="Choose Service"
-                          _selectedItem={{
-                            bg: "teal.600",
-                            endIcon: <CheckIcon size="5" />,
-                          }}
-                          style={{height:30}}
-                          mt={1}
-                          
-                          onValueChange={(itemValue) => {
-                         
-                            changeHandler(item.id,itemValue)}}
-                        > 
-                          {item.quantity && item.quantity.map(option => {
-                              return (<Select.Item key={option.key} label={option["value"]} value={option.value} /> );
-                          })}
-                          
-                        </Select> */}
                       </VStack>
-                         
                         </View>
-                      
                         <View style={{flex:1,alignItems:'flex-end'}}>
                        <Button
                             rightIcon={<AddIcon size="4" />}
@@ -716,18 +418,8 @@ const Review_Cart = ({navigation}) =>{
                             >
                         ADD
                         </Button>
-                        
-                        </View> 
-                      
-
-                       
-                        
-                
-
                         </View>
-                 
-
-                         
+                        </View>
                     </VStack>
                     </HStack>
                     </NativeBaseProvider>
@@ -844,65 +536,7 @@ const Review_Cart = ({navigation}) =>{
 export default Review_Cart
 
 
-const styles = StyleSheet.create({
-    button_decrement:{
-        height:25,
-        width:25,
-        borderWidth:1,
-        borderTopLeftRadius:6,
-        borderBottomLeftRadius:6,
-        alignItems:'center',
-        paddingTop:10,
-        borderColor:'rgba(240, 78, 35,0.2)'
-        
-        
-    },
-    button_increment:{
-        height:25,
-        width:25,
-        borderWidth:1,
-        borderBottomRightRadius:6,
-        borderTopRightRadius:6,
-        alignItems:'center',
-        paddingTop:7,
-        borderColor:'rgba(240, 78, 35,0.2)'
 
-    },
-    quantity:{
-        width:26,
-        height:25,
-        borderWidth:1,
-        borderRightWidth:0,
-        borderLeftWidth:0,
-        borderColor:'rgba(240, 78, 35,0.2)'
-    },
-    quantity_bought:{
-
-        color:'grey',
-        fontSize:12,
-        
-
-    },
-    boxes:{
-        width:214,
-        height:101,
-        borderWidth:1,
-        borderRadius:6,
-        borderColor:'#E2E2E2',
-        marginRight:15
-    },
-    box_title:{
-        fontSize:18,
-        paddingTop:5,
-        paddingBottom:10
-    },
-    summary:{
-        flexDirection:'row',
-        justifyContent:'space-between',
-        marginTop:15,
-        alignItems:'center'
-    }
-})
 
 const theme = extendTheme({
     components:{

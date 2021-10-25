@@ -6,12 +6,9 @@ import Mic_svg from '../../assets/mic_icon/mic_svg.svg'
 import Camera_svg from '../../assets/camera_icon/camera_svg.svg'
 import Back from '../../assets/back_arrow/back.svg'
 import Clock from '../../assets/clock/clock.svg'
-import Banana from '../../assets/fruits_trending_search/banana.svg'
-import Fortune_oil from '../../assets/fruits_trending_search/fortune_oil.svg'
-import Ashirwad_aata from '../../assets/fruits_trending_search/ashirwad_aata.svg'
 import Cross from '../../assets/cross/cross.svg'
-import SearchCategoriesNavigator from "../../navigations/topNavigator/searchCategoriesNavigator";
-import Milk_Categories from '../../screens/category/vegetable/milk_categories';
+import SearchCategoriesNavigator from "../../components/customNavigation/topNavigator/searchCategoriesNavigator";
+import { recent_search,trending_search } from "../../api/data";
 
 const Search =({navigation})=>{
 
@@ -26,41 +23,6 @@ const Search =({navigation})=>{
         
     })
 
-    const [showSearch, setShowSearch] = useState(false)
-    const recent_search = [
-        {
-            id:1,
-            searched_item:'Potato'
-        },
-        {
-            id:2,
-            searched_item:'Tomato'
-        }
-
-    ]
-
-    const trending_search = [
-        {
-            id:1,
-            trending_item:'Banana',
-            picture:<Banana />,
-            category:'Fruits & Vegetable'
-        },
-        {
-            id:2,
-            trending_item:'Oil',
-            picture:<Fortune_oil />,
-            category:'Cooking Essential'
-        },
-        {
-            id:3,
-            trending_item:'Ashirwad Atta',
-            picture:<Ashirwad_aata />,
-            category:'Breakfast and Essential'
-        },
-        
-
-    ]
 
     const ShowAnother = (e)=>{
 
@@ -80,14 +42,11 @@ const Search =({navigation})=>{
 
     const Search_Input=()=>{
         setShowSearchedContent(true)
-        setShowSearch(false)
+        
     }
 
 
     return(
-    //     <View style={{backgroundColor:'white',flex:1}}>
-    //   <SearchCategoriesNavigator />
-    //   </View>
 <View style={{backgroundColor:'white',flex:1}}>
 
 <View style={{flexDirection:'row',alignItems:'center',paddingTop:10}}>
@@ -105,7 +64,7 @@ const Search =({navigation})=>{
             </View>
             <View style={{paddingRight:10}}>
                 
-                <TextInput placeholder="Search for products and category" onSubmitEditing={()=>Search_Input()} onChangeText={(e)=>ShowAnother(e)} ref={inputref}   onBlur={()=>setShowSearch(false)}  />
+                <TextInput placeholder="Search for products and category" onSubmitEditing={()=>Search_Input()} onChangeText={(e)=>ShowAnother(e)} ref={inputref}     />
             </View>
             { !ShowCross && <View style={{flexDirection:'row'}}>
             <View style={{paddingRight:10}}>
@@ -131,9 +90,6 @@ const Search =({navigation})=>{
 { ShowSearchedContent &&  <SearchCategoriesNavigator />}
 {!ShowCross &&
 <View style={{marginTop:40,marginHorizontal:15}}>
-            {/* <Milk_Categories /> */}
-    {/* <SearchCategoriesNavigator test_string='hello' /> */}
-
 <View style={{paddingLeft:10}}>
     <Text style={{color:'grey',fontStyle:'italic'}}>Recent search</Text>
     <View>

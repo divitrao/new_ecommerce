@@ -6,9 +6,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { LogBox } from 'react-native';
 
 
-const App=() => {
+const App=({navigation}) => {
   LogBox.ignoreLogs(["Require cycle:"])
-
+  LogBox.ignoreLogs(['VirtualizedLists should never be nested',])
+console.log(navigation)
   return (
     
     <NavigationContainer>

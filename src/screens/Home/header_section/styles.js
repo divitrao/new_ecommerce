@@ -21,7 +21,6 @@ export default StyleSheet.create({
         justifyContent:'flex-start',
         alignItems:'center',
         
-        // backgroundColor:'red'
     },
     dropdown_and_time:{
         display:'flex',

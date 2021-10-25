@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text,Image, FlatList, ScrollView } from 'react-native';
+import { View, Text,Image, FlatList,StyleSheet, ScrollView } from 'react-native';
 import { ArrowBackIcon,Radio,Input,Button,Box, NativeBaseProvider } from "native-base";
-import styles from "./styles"
 
 const PaymentOptions = ({navigation}) => {
 
@@ -70,7 +69,7 @@ const PaymentOptions = ({navigation}) => {
     
        <ScrollView>
  
-       <View style={styles.paymentOption_main_view}>
+       <View style={{flex:1,paddingHorizontal:10,backgroundColor:'white'}}>
                 
 
             <NativeBaseProvider>
@@ -80,7 +79,7 @@ const PaymentOptions = ({navigation}) => {
                     <Text style={styles.amt}>
                         Amount Payable
                     </Text>
-                    <Text style= {styles.amt_text}>
+                    <Text style= {{"fontWeight":"400", fontSize:10 }}>
                         Including all taxes
                     </Text>
                 </View>
@@ -92,9 +91,9 @@ const PaymentOptions = ({navigation}) => {
                 
                             393.6
                         </Text>
-                        <Text style= {styles.savingRupee}>
+                        <Text style= {{"fontWeight":"400", fontSize:10, color:'green' }}>
                             you are saving 22 
-                            <Image style={styles.rupeeImage}
+                            <Image style={{height:10, tintColor:'green'}}
                                source={require('../../assets/images/currency_b.png')} />
                         </Text>
                     </View>
@@ -106,8 +105,8 @@ const PaymentOptions = ({navigation}) => {
 
             <View style={styles.deliveryfrom}>
                 <View style={{flexDirection:'row'}}>
-                    <Image style={styles.deliveryIcon} source={require('../../assets/payment_screen/deliveryfrom.png')} />
-                    <Text style={styles.deliveryIcon_style}>
+                    <Image style={{marginTop:10, position:'absolute'}} source={require('../../assets/payment_screen/deliveryfrom.png')} />
+                    <Text style={{color:'grey', paddingLeft:30}}>
                         Delivery From
                     </Text>
                  </View>
@@ -121,8 +120,8 @@ const PaymentOptions = ({navigation}) => {
 
             <View style={styles.deliveryto}>
                 <View style={{flexDirection:'row'}}>
-                    <Image style={styles.deliveryIcon} source={require('../../assets/payment_screen/deliveryto.png')} />
-                    <Text style={styles.deliveryIcon_style}>
+                    <Image style={{marginTop:10, position:'absolute'}} source={require('../../assets/payment_screen/deliveryto.png')} />
+                    <Text style={{color:'grey', paddingLeft:30}}>
                         Delivery To
                     </Text>
                  </View>
@@ -136,7 +135,7 @@ const PaymentOptions = ({navigation}) => {
 
              <View style={styles.deliveryto}>
               
-                   <Text style={styles.deliverySlot}>
+                   <Text style={{color:'grey', paddingLeft:30}}>
                         Delivery Slot
                     </Text>
                  
@@ -151,7 +150,7 @@ const PaymentOptions = ({navigation}) => {
              
              <NativeBaseProvider>
              <Box>
-                <Text style={styles.text_YourPaymentMethod}>
+                <Text style={{fontWeight:"500", fontSize:10, padding:10, paddingVertical:20}}>
                         Your Payment Method
                     </Text>
 
@@ -160,7 +159,7 @@ const PaymentOptions = ({navigation}) => {
                   {your_payment_methods.map((item)=>{
                       return(
 
-                                <View key={item.id} style={styles.payment_view}>
+                                <View key={item.id} style={{flexDirection:'row',paddingVertical:15, justifyContent:'space-between'}}>
                                 <View style={{flexDirection:'row',}}>
                                     <Image style={styles.your_payment_methods} source={item.payment_type_image} />
                                 
@@ -171,7 +170,7 @@ const PaymentOptions = ({navigation}) => {
                                         </Text>
                                 </View>
 
-                                <View style={styles.radiobutton_view}>
+                                <View style={{marginRight:20}}>
                                     <Radio.Group  value={value}
                                                 onChange={(nextValue) => {
                                                     setValue(nextValue)
@@ -231,7 +230,7 @@ const PaymentOptions = ({navigation}) => {
  
           <NativeBaseProvider>
               <Box>
-                    <Text style={styles.text_more_payment_methods}>
+                    <Text style={{fontWeight:"500", fontSize:10, padding:15, paddingVertical:25}}>
                         More Payment Method
                     </Text>
 
@@ -239,7 +238,7 @@ const PaymentOptions = ({navigation}) => {
                    <View>
                        {more_payment_methods.map((item)=>{
                            return(
-                            <View key={item.id} style={styles.view_more_payment_methods}>
+                            <View key={item.id} style={{flexDirection:'row',justifyContent:'space-between',padding:10,alignItems:'center'}}>
                             
                             <View style={{flexDirection:'row',alignItems:'center', padding:5}}> 
                                 <Image style={{marginRight:10}} source={item.card_image} />
@@ -272,5 +271,90 @@ const PaymentOptions = ({navigation}) => {
 
 )
 }; 
+
+
+const styles = StyleSheet.create({
+
+    header:{
+        
+        flexDirection:'row',
+        alignItems:'center',
+        paddingHorizontal:10,
+        paddingTop:10,
+        alignContent:'flex-start'
+
+    },
+
+    sidearrow:{
+        paddingVertical:5
+        
+    },
+
+    amount_flex:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignContent:'flex-start',
+        paddingHorizontal:10,
+        paddingTop:20
+    },
+
+    amt:{
+        fontSize:16,
+        fontWeight:'400'
+    },
+    deliveryfrom:{
+        paddingTop:15,
+        paddingHorizontal:10,
+        
+    },
+    deliveryto:{
+        paddingTop:15,
+        paddingHorizontal:10,
+    },
+    address:{
+            fontSize:12,
+            fontWeight:'400',
+            paddingHorizontal:30,
+            textAlign:"left"
+
+    },
+    payment_methods:{
+        flexDirection:'row',
+        padding:10,
+        fontWeight:"400", 
+        fontSize:12
+    },
+    your_payment_methods:{
+        // marginHorizontal:20,
+        width: 34,
+        height: 24,
+        marginLeft:20
+    },
+    more_payment_methods:{
+        marginHorizontal:20,
+       
+
+    },
+    radiobutton:{
+        marginLeft:85,
+        justifyContent:'flex-end'
+     
+       
+    }, 
+    collapse:{
+        marginLeft:135,
+        width: 10,
+      
+    },
+    paybutton:{
+        flexDirection:'row',
+        justifyContent:'flex-end',
+        paddingTop:10,
+        marginLeft:100
+    }
+    
+  
+
+})
 
 export default PaymentOptions;

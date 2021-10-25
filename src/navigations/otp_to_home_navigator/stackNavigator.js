@@ -6,15 +6,11 @@ import MyTabs from "../bottom_tab_navigator";
 import MobileVerification from "../../screens/MobileOtp/mobileVerification";
 import Namedetails from "../../screens/names/namedetails";
 import Getlocation from "../../screens/location/getLocation";
-import Veggies from "../../screens/category/vegetable";
-
 import Custom_header from "../../screens/Custom_Headers";
 import Review_Cart from "../../screens/reviewCart/reviewCart";
-import Category from "../../screens/category/vegetable";
 import TopTabNavigation from '../../navigations/topNavigator/topTabNavigator';
 import PaymentOptions from "../../screens/paymentOptions/paymentOptions";
 import SearchCategoriesNavigator from "../../navigations/topNavigator/searchCategoriesNavigator";
-import { Stack } from "native-base";
 import MyOrders from "../../screens/Account/MyOrder";
 import TrackOrder from "../../screens/TrackOrder";
 import Help from '../../assets/help/help.svg'
