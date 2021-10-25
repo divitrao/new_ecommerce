@@ -336,7 +336,7 @@ function Basic({navigation}) {
                    <Image resizeMode='contain' alt="currency"  source={require('../../assets/images/currency_w.png')} />
                    <Text style={categoriesStyles.popupTextDelete}>827</Text></Text>
                </View>
-               <View style={styles.rightContainer}>
+               <View style={categoriesStyles.rightContainer}>
                  <TouchableOpacity onPress={()=>navigation.navigate('review_cart')}>
                    <Text style={categoriesStyles.popupImageText}>View Cart  <Image resizeMode='contain' source={require('../../assets/images/cart.png')} alt="cart" /></Text>
                </TouchableOpacity>
