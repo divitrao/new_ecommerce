@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text,Image,style,StyleSheet, ScrollView,TouchableOpacity } from 'react-native';
+import { View, Text,Image, ScrollView,TouchableOpacity } from 'react-native';
 import {Card,Input, NativeBaseProvider,Button, extendTheme} from 'native-base';
+import styles from "./styles"
 
 
 const MyAddress = () => {
@@ -26,13 +27,10 @@ const MyAddress = () => {
 
     return (
 
-    // <View>
-
-        
             
           <NativeBaseProvider>
-              <View style={{backgroundColor:'white',flex:1}}>
-            <View style={{marginHorizontal:10,paddingTop:15}}>
+              <View style={styles.main_view}>
+            <View style={styles.add_button}>
 
                 <Button backgroundColor='#EDEDED' borderRadius='20' _text={{color:'#7E8090'}}
                  leftIcon= {<Image resizeMode="contain"  source={require('../../assets/Account/add.png')} alt="list"/>}>
@@ -45,17 +43,17 @@ const MyAddress = () => {
         <View style={{marginTop:25}}>
             {Address.map((item)=>{
                 return(
-                <Card key={item.id} style={{marginHorizontal:5,marginBottom:15}} shadow={6} _light={{ backgroundColor: 'rgba(255, 255, 255, 1)' }}>
+                <Card key={item.id} style={styles.address_card} shadow={6} _light={{ backgroundColor: 'rgba(255, 255, 255, 1)' }}>
                 
-                        <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
-                            <View style={{flexDirection:'row',alignItems:'center'}}>
-                                <Text style={{marginHorizontal:7, fontWeight:'600',fontSize:16,paddingVertical:8}}>
+                        <View style={styles.card_style}>
+                            <View style={styles.item_name}>
+                                <Text style={styles.text_item_name}>
                                     {item.name}
                                 </Text>
 
                                 {item.name=='Home' && 
-                                                        <View style={{borderWidth:1,paddingHorizontal:3,borderRadius:20,borderColor:'#F04E23',backgroundColor:'rgba(240, 78, 35, 0.1)'}}>
-                                                            <Text style={{marginHorizontal:5,color:'#F04E23'}}>
+                                                        <View style={styles.default_style}>
+                                                            <Text style={styles.default_text_style}>
                                                                 Default
                                                             </Text>
 
@@ -89,25 +87,11 @@ const MyAddress = () => {
             </View>
             </View>
             </NativeBaseProvider>
-// {/* </View> */}
+
 
 
     )
 };
-
-
-
-
-const styles = StyleSheet.create ({
-
-    home:{
-        paddingTop:15,
-        paddingHorizontal:10,
-    },
-    
-})
-
-
 
 export default MyAddress;
 

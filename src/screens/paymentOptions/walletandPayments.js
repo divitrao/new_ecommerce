@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text,Image,style,StyleSheet, ScrollView,TouchableOpacity } from 'react-native';
 import {Card,Box, NativeBaseProvider, linearGradient} from 'native-base';
+import styles from "./styles"
 
 
 const WalletPayments = ({navigation}) => {
@@ -22,12 +23,12 @@ const WalletPayments = ({navigation}) => {
     return(
      <NativeBaseProvider>
         <View style={{ backgroundColor:'white',flex:1, paddingHorizontal:10}}>
-            <Card width='100%'  shadow ={0} style={styles.card} >
+            <Card width='100%' style={styles.card} >
 
               <View style={{flexDirection:'row'}}>
                  
                   <View>
-                    <Image style={{width:16,height:16,padding:10,margin:10}} source={require('../../assets/payment_screen/wallet_rupee.png')} />
+                    <Image style={styles.wallet_rupee_image} source={require('../../assets/payment_screen/wallet_rupee.png')} />
 
                   </View>  
               
@@ -39,7 +40,7 @@ const WalletPayments = ({navigation}) => {
 
                         </View>   
                 
-                        <View style={{flexDirection:'row',width:38, height:17,marginVertical:4}}>
+                        <View style={styles.wallet_view}>
                             <Image style={{tintColor:'#F04E23'}} source={require('../../assets/images/currency_b.png')} />
                             
                             <Text style={{color:'#F04E23',fontWeight:'bold'}}>
@@ -51,7 +52,7 @@ const WalletPayments = ({navigation}) => {
                             <Text style={{color: 'rgba(40, 152, 255, 1)',fontSize:11}}>
                                 Earn more
                             </Text>
-                            <Image style={{tintColor:'blue',height:6,width:4, marginTop:5,marginLeft:4}} source={require('../../assets/payment_screen/rightsidearrow.png')} />
+                            <Image style={styles.earn_more} source={require('../../assets/payment_screen/rightsidearrow.png')} />
                         </View>   
 
                 </View>
@@ -59,28 +60,9 @@ const WalletPayments = ({navigation}) => {
             </View> 
             </Card>
 
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        <View>
+           <View>
             <View>
-                    <Text style={{fontWeight:"500", fontSize:14, padding:15,marginTop:15,paddingVertical:20}}>
+                    <Text style={styles.payment_method_view}>
                             Your payment method
                     </Text>
 
@@ -89,7 +71,7 @@ const WalletPayments = ({navigation}) => {
                         {your_payment_methods.map((item)=>{
                             return(
                                        
-                                <Card   key={item.id} style={{elevation:5}}>
+                                <Card   key={item.id} style={{elevation:2}}>
                                 <View style={{flexDirection:'row', justifyContent:'space-between',marginHorizontal:10}}>
                                         <View style={{flexDirection:'row',paddingVertical:12, justifyContent:'space-between'}}>
                                                 <View style={{flexDirection:'row',}}>
@@ -132,20 +114,5 @@ const WalletPayments = ({navigation}) => {
     )
 };
 
-
-const styles= StyleSheet.create ({
-    
-    card:{
-        marginTop:25,
-        // width:328,
-        
-        //  height:90,
-        alignSelf:'center',
-        backgroundColor:'rgba(240, 78, 35, 0.1)',
-
-        
-    },
-
-})
 
 export default WalletPayments;
