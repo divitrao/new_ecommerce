@@ -9,7 +9,6 @@ const  Carousel_card=()=>{
 
     const onViewRef = React.useRef((viewableItems)=> {
         const key = viewableItems.viewableItems.length-1
-        // console.log(viewableItems.viewableItems[key].index,'key')
         // Use viewable items in state or as intended
         setCurrentSlide(viewableItems.viewableItems[key].index)
     })
@@ -20,7 +19,6 @@ const occasion = ['Dussera','Diwali','Christmas','Republic Day','Makarsankranti'
 
 const Slidelist = Array.from({length:5}).map((_,i)=>{
     percent = percent+10
-    // console.log(percent)
     return{
         id:i,
         percent:percent,
@@ -60,7 +58,6 @@ const Slide=({data})=>{
     <View style={styles.Flatlist_Style} >
     
     {occasion.map((occasions,i)=>{
-        // {console.log(i,'kkk')}
         return(
         <View
            key={i}

@@ -7,7 +7,7 @@ export default StyleSheet.create({
         flexDirection:'column',
         alignItems:'center',
         backgroundColor:'white',
-        justifyContent:'center',
+        // justifyContent:'center',
     },
      
     otpinformation:{

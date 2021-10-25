@@ -1,7 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 export default StyleSheet.create({
     card_view:{
-        // flexDirection:'row',
         alignItems:'flex-start',
         backgroundColor:'#FFECEC',
         width:Dimensions.get('screen').width,
@@ -21,8 +20,6 @@ export default StyleSheet.create({
         height:5,
         width:5,
         borderRadius:5/2,
-        // borderWidth:1,
-        // borderColor:'black',
         marginRight:4,
         backgroundColor:'#F04E23'
     },

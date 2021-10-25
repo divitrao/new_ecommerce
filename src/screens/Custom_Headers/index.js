@@ -1,18 +1,15 @@
 import React from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import SelectDropdown from 'react-native-select-dropdown'
 import Search_icon from '../../assets/search_icon/search_svg.svg'
 import Back_icon from '../../assets/back_arrow/back.svg'
+import styles from './styles'
 
 const Custom_header = (props)=>{
-    console.log(props,'nnnnn')
     
     const centers = ['HOME','CENTER','SENDER']
-    const checked=()=>{
-      console.log('clicked')
-    }
     return(
-        <View style={{backgroundColor:'white', flexDirection:'row',justifyContent:'space-between',alignItems:'center',marginHorizontal:8}}>
+        <View style={styles.main_view}>
             <View style={{flexDirection:'row',alignItems:'center'}}>
             <View>
 
@@ -33,8 +30,7 @@ const Custom_header = (props)=>{
             
             data={centers}
             onSelect={(selectedItem,index)=>{
-                // console.log(selectedItem)
-                // setcenterAddress(center_address[selectedItem])
+               
             }}
             buttonTextAfterSelection={(selectedItem,index)=>{
                 return selectedItem
@@ -44,10 +40,9 @@ const Custom_header = (props)=>{
 
             }}
             defaultButtonText={centers[0]}
-            buttonStyle={{width:100,height:30,backgroundColor:'transparent',justifyContent:'flex-start'}}
-            buttonTextStyle={{fontSize:13,alignItems:'flex-start',color:'#F04E23',textAlign:'left'}}
-            //renderDropdownIcon = {()=>dropdowns()}
-            // dropdownIconPosition='right'
+            buttonStyle={styles.buttonStyle}
+            buttonTextStyle={styles.buttonTextStyle}
+       
            />
             </View>
             </View>

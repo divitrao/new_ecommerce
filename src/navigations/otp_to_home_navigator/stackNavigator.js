@@ -1,20 +1,17 @@
 import React from "react";
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import OtpScreen from "../../screens/otp_verification/otp_screen";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import MyTabs from "../bottom_tab_navigator";
 import MobileVerification from "../../screens/MobileOtp/mobileVerification";
 import Namedetails from "../../screens/names/namedetails";
 import Getlocation from "../../screens/location/getLocation";
 import Veggies from "../../screens/category/vegetable";
-
 import Custom_header from "../../screens/Custom_Headers";
 import Review_Cart from "../../screens/reviewCart/reviewCart";
-import Category from "../../screens/category/vegetable";
 import TopTabNavigation from "../../components/customNavigation/topNavigator/topTabNavigator";
 import PaymentOptions from "../../screens/paymentOptions/paymentOptions";
 import SearchCategoriesNavigator from "../../components/customNavigation/topNavigator/searchCategoriesNavigator";
-import { Stack } from "native-base";
 import MyOrders from "../../screens/Account/MyOrder";
 import TrackOrder from "../../screens/TrackOrder";
 import Help from '../../assets/help/help.svg'
@@ -66,20 +63,23 @@ const HomeStack = ()=>{
                     <stacks.Screen name='order_placed' options={{headerShown:false}} component={OrderPlaced} />
                     <stacks.Screen name='myAddress' options={{headerTitle:'My Address'}} component={MyAddress} />
                     <stacks.Screen name='walletAndPayment' options={{headerTitle:'My Wallet & Payments'}} component={WalletPayments} />
-                    <stacks.Screen name='product'   options={{headerTitle:'',headerRight:()=>{
+                    <stacks.Screen name='product' options={({route})=>{return({headerRight:()=>{
                         return(
                             <View style={{flexDirection:'row'}}>
-                                <View style={{marginRight:10}}>
-                                <Search />
-                                </View>
-                                <View>
-                                <Share />
-                                </View>
-                                
-
+                            <View style={{marginRight:10}}>
+                                <TouchableOpacity onPress={()=>{route.params.navigation.navigate('Search')}}>
+                            <Search />
+                            </TouchableOpacity>
                             </View>
+                            <View>
+                            <Share />
+                            </View>
+                            
+                
+                        </View>
                         )
-                    }}} component={Product} />
+                    }})}}  component={Product} />
+                    <stacks.Screen name="Vegetable_and_Dairy_info" component={Veggies}  />
             </stacks.Navigator>
         
     )

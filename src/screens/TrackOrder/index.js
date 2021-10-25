@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import Tick from '../../assets/circled_tick/tick_for_delivery.svg'
 import Truck from '../../assets/truck/truck.svg'
 import Location from '../../assets/location_icon/location_grey.svg'
@@ -8,6 +8,7 @@ import Atta from '../../assets/cart_product/atta.svg'
 import Coconut from '../../assets/cart_product/coconut.svg'
 import Milk from '../../assets/cart_product/milk.svg'
 import Tick_Success from '../../assets/circled_tick/tick.svg'
+import styles from './styles'
 
 
 const data = [
@@ -165,7 +166,7 @@ const TrackOrder = ({route}) => {
                 <View style={{ marginTop: 20, backgroundColor: 'white' }}>
                     {cart.map((item) => {
                         return (
-                            <View key={item.id} style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', paddingTop: 10,marginBottom:10 }}>
+                            <View key={item.id} style={styles.cart_style}>
                                 <View>
                                     {item.picture}
                                 </View>
@@ -256,21 +257,3 @@ const TrackOrder = ({route}) => {
 export default TrackOrder
 
 
-const styles = StyleSheet.create({
-    quantity_bought: {
-
-        color: 'grey',
-        fontSize: 12,
-
-
-    },
-
-    summary:{
-        flexDirection:'row',
-        justifyContent:'space-between',
-        marginTop:15,
-        alignItems:'center'
-    },
-
-    
-})

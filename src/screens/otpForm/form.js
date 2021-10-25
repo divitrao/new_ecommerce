@@ -1,12 +1,10 @@
-import { Formik } from "formik";
-import {Platform, ToastAndroid} from 'react-native'
+import {Platform} from 'react-native'
 import React, { useEffect, useState } from "react";
 import { useRef } from "react";
-import { Button, TextInput, TouchableOpacity,Text, View } from "react-native";
+import { TextInput, TouchableOpacity,Text, View } from "react-native";
 import styles from  './styles';
 
 const OtpForm = (navigation_link)=>{
-    // console.log(navigation_link,'hemlo')
     const isAndroid = Platform.OS
     const [otpArray, setOtpArray] = useState([])
     const [fillAll, setFillAll] = useState(false)
@@ -19,17 +17,14 @@ const OtpForm = (navigation_link)=>{
 
 
     const HandleSubmit=(navigation_link)=>{
-        // console.log(otpArray.join(''))
         if (otpArray.join('').length!=4){
             setFillAll(true)
-            // ToastAndroid.show('input all',ToastAndroid.LONG)
         }
         if(otpArray.join('')!='1111' && otpArray.join('').length==4){
             setInvalidOtp(true)
         }
         else if(otpArray.join('')=='1111'){
             setOtpSuccessful(true)
-            // navigation_link.navigation_link.navigate('home') 
             navigation_link.navigation_link.navigate('name_detail')
 
         }
@@ -99,7 +94,6 @@ const OtpForm = (navigation_link)=>{
                        autoFocus={i === 0 ? true : undefined}
                        style={styles.input}
                        containerStyle={{ flex: 0.15 }}
-                    //    onFocus = {remove_error()}
             	/>
       	)
 )}
