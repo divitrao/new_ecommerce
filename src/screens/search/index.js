@@ -10,7 +10,7 @@ import Banana from '../../assets/fruits_trending_search/banana.svg'
 import Fortune_oil from '../../assets/fruits_trending_search/fortune_oil.svg'
 import Ashirwad_aata from '../../assets/fruits_trending_search/ashirwad_aata.svg'
 import Cross from '../../assets/cross/cross.svg'
-import SearchCategoriesNavigator from "../../components/customNavigation/topNavigator/searchCategoriesNavigator";
+import SearchCategoriesNavigator from "../../navigations/topNavigator/searchCategoriesNavigator";
 import Milk_Categories from '../../screens/category/vegetable/milk_categories';
 
 const Search =({navigation})=>{

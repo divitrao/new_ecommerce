@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { TouchableOpacity, StyleSheet,View, } from 'react-native';
+import { TouchableOpacity,View, } from 'react-native';
 
 import {
   NativeBaseProvider,
@@ -350,37 +350,3 @@ function Basic({navigation}) {
 
 
 
-const styles=StyleSheet.create({
-      navBar: {
-       
-        height: 50,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: "#F04E23",
-        // marginBottom: 50,
-        padding: 10,
-        borderRadius: 6,
-        marginHorizontal:15,
-        
-      },
-      leftContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-
-      },
-      rightContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-      },
-      rightIcon: {
-        height: 10,
-        width: 10,
-        resizeMode: 'contain',
-        backgroundColor: 'white',
-      }
-
-})

@@ -1,6 +1,6 @@
 
-import React, { useState, createContext } from 'react';
-import { TouchableOpacity, StyleSheet, View, } from 'react-native';
+import React, { useState } from 'react';
+import { TouchableOpacity, View, } from 'react-native';
 
 import {
   NativeBaseProvider,
