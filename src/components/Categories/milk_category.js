@@ -272,6 +272,7 @@ function Basic({navigation}) {
                                   base: "45%",
                               }}
                               style={categoriesStyles.input}
+                              caretHidden={true}
                               
                               />
                           <Button  style={categoriesStyles.cartAddButton}
