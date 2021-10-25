@@ -26,9 +26,10 @@ import {
 import { SwipeListView } from 'react-native-swipe-list-view';
 import categoriesStyles from './styles/categories_styles';
 import { Picker } from '@react-native-picker/picker';
+import { categories_data } from '../../api/data';
 const MyDiv = createContext()
 export default function Categories({ navigation }) {
-  // console.log(navigation)
+
   const [mode, setMode] = useState('Basic');
 
 
@@ -45,61 +46,9 @@ export default function Categories({ navigation }) {
 
 function Basic({ navigation }) {
 
-  // const datas = useContext(MyDiv)
-  // console.log(navigation)
-
   const [cartValue, setCartValue] = useState(0)
 
-  const data = [
-    {
-      id: 1,
-      image: require('../../assets/images/image_1.png'),
-      content: 'OPP Sooji 500gm Pouch',
-      colors: '#53B175',
-      actual_amount: 33,
-      discount_amount: 19,
-      discount_perc: '42%',
-      quantity: [{ key: '1_1', value: '500 gm' }, { key: '1_2', value: '750 gm' }, { key: '1_3', value: '1 kg' }],
-      rating_perc: 3.8,
-      rating_count: 29108,
-      is_vegan: false,
-      selectedDropdownValue: '500 gm',
-      cartValue: 0,
-    },
-    {
-      id: 2,
-      image: require('../../assets/images/image_2.png'),
-      content: 'Aashirvaad Superior MP Wheat Atta',
-      colors: '#53B175',
-      actual_amount: 109,
-      discount_amount: 98,
-      discount_perc: '10%',
-      quantity: [{ key: '2_1', value: '1 kg' }, { key: '2_2', value: '2 kg' }, { key: '2_3', value: '3 kg' }, { key: '2_4', value: '4 kg' }],
-      rating_perc: 4.3,
-      rating_count: 62191,
-      is_vegan: true,
-      selectedDropdownValue: '1 kg',
-      cartValue: 0,
-    },
-    {
-      id: 3,
-      image: require('../../assets/images/image_3.png'),
-      content: 'Aashirvaad Sharbati Select Atta',
-      colors: '#53B175',
-      actual_amount: 315,
-      discount_amount: 293,
-      discount_perc: '7%',
-      quantity: [{ key: '3_1', value: '1 kg' }, { key: '3_2', value: '2 kg' }, { key: '3_3', value: '3 kg' },
-      { key: '3_4', value: '4 kg' }, { key: '3_5', value: '5 kg' }, { key: '3_6', value: '6 kg' }],
-      rating_perc: 3.8,
-      rating_count: 29102,
-      is_vegan: false,
-      selectedDropdownValue: '5 kg',
-      cartValue: 0,
-
-    },
-
-  ]
+  const data = categories_data
 
   const [listData, setListData] = useState(data);
 
@@ -146,7 +95,6 @@ function Basic({ navigation }) {
     const item_exist = listData.find((x) => x['id'] == item_id);
 
     var index = listData.indexOf(item_exist)
-    // console.log(index,"######")
 
     item_exist.selectedDropdownValue = itemValue
     var filteredArray = listData.filter(function (itm) {
@@ -257,7 +205,7 @@ function Basic({ navigation }) {
                       onPress={() => onDecrementHandler(item.id)}>
                       <MinusIcon size='3' style={{ flex: 1, flexDirection: 'row', color: 'white' }} /></Button>
                     <Input
-                      value={cartValue.toString()}
+                      value={item.cartValue.toString()}
                       showSoftInputOnFocus={false}
                       mx="0"
                       w={{

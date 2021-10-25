@@ -26,6 +26,7 @@ import {
 import { SwipeListView } from 'react-native-swipe-list-view';
 import categoriesStyles from './styles/categories_styles';
 import { Picker } from '@react-native-picker/picker';
+import { milk_data } from '../../api/data';
 
 export default function Milk_Categories({navigation}) {
   const [mode, setMode] = useState('Basic');
@@ -43,72 +44,7 @@ function Basic({navigation}) {
 
 
     
-    const data = [
-        {
-            id:1,
-            image: require('../../assets/images/milk_1.png'),
-            content:'Nandini Toned Milk (Polypack)',
-            colors:'#53B175',
-            actual_amount: null,
-            discount_amount: 19,
-            discount_perc: null, 
-            quantity:[{key:'1',value:'500 ml'},{key:'2',value:'750 ml'},{key:'3',value:'1 lt'}],
-            rating_perc: 4.3,
-            rating_count: 62191,
-            best_seller: true,
-            selectedDropdownValue: '500 ml',
-            cartValue: 0,
-            
-        },
-        {
-            id:2,
-            image: require('../../assets/images/milk_2.png'),
-            content: 'Nandini Shubham Pasteurised Standardized Milk (Polypack)',
-            colors:'#53B175',
-            actual_amount: null,
-            discount_amount: 22,
-            discount_perc: null,
-            quantity:[{key:'1',value:'500 ml'},{key:'2',value:'1 lt'},{key:'3',value:'2 lt'}],
-            rating_perc: 3.8,
-            rating_count: 29102,
-            best_seller: false,
-            selectedDropdownValue: '500ml',
-            cartValue: 0,
-        },
-        {
-            id:3,
-            image: require('../../assets/images/milk_3.png'),
-            content:'Amul Taaza Toned Milk (Tetra Pak)',
-            colors:'#53B175',
-            actual_amount: null,
-            discount_amount: 66,
-            discount_perc: null,
-            quantity:[{key:'1',value:'1 lt'},{key:'2',value:'2 lt'},{key:'3',value:'3 lt'}],
-            rating_perc: 3.8,
-            rating_count: 29102,
-            best_seller: false,
-            selectedDropdownValue: '1 lt',
-            cartValue: 0,
-
-        },
-
-        {
-            id:4,
-            image: require('../../assets/images/milk_4.png'),
-            content:'Nivea Milk Delights Precious Saffron Face Wash (Normal Skin)',
-            colors:'#53B175',
-            actual_amount: 185,
-            discount_amount: 139,
-            discount_perc: '24%',
-            quantity:[{key:'1',value:'100 ml'},{key:'2',value:'200 ml'},{key:'3',value:'300 ml'}],
-            rating_perc: 3.8,
-            rating_count: 29102,
-            best_seller: false,
-            selectedDropdownValue: '100 ml',
-            cartValue: 0,
-        },
-        
-    ]
+    const data = milk_data
 
   const [listData, setListData] = useState(data);
 

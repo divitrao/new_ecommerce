@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Dimensions, TouchableOpacity, ViewComponent, StyleSheet,View, } from 'react-native';
+import { TouchableOpacity,View, } from 'react-native';
 
 import {
   NativeBaseProvider,
@@ -9,13 +9,8 @@ import {
   CheckIcon,
   Text,
   Pressable,
-  Heading,
-  IconButton,
-  Icon,
   HStack,
-  Avatar,
   VStack,
-  Spacer,
   Image,
   Badge,
   Button,
@@ -25,56 +20,21 @@ import {
 } from 'native-base';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import categoriesStyles from './styles/categories_styles';
-import { Picker } from '@react-native-picker/picker';
+import { my_list_data } from '../../api/data';
 
 export default function List_Categories({navigation}) {
-  const [mode, setMode] = useState('Basic');
 
   return (
     <NativeBaseProvider>
-        <Basic navigation={navigation} />
-        
+        <Basic navigation={navigation} />        
     </NativeBaseProvider>
   );
 }
 
 function Basic({navigation}) {
-    const[cartValue, setCartValue] = useState(0)   
+  const[cartValue, setCartValue] = useState(0)   
 
-    const data = [
-        {
-            id:1,
-            image: require('../../assets/images/colgate.png'),
-            content:'Colgate Dental Cream 46 gm',
-            colors:'#53B175',
-            actual_amount: null,
-            discount_amount: 20,
-            discount_perc: null, 
-            quantity:[{key:'1',value:'1 pc'},{key:'2',value:'2 pc'},{key:'3',value:'3 pc'}],
-            rating_perc: 3.8,
-            rating_count: 62191,
-            best_seller: false,
-            cartValue: 0,
-            selectedDropdownValue: '1 pc'
-        },
-        {
-            id:2,
-            image: require('../../assets/images/nivea.png'),
-            content: 'Nivea Cream',
-            colors:'#53B175',
-            actual_amount: null,
-            discount_amount: 19,
-            discount_perc: null,
-            quantity:[{key:'1',value:'100 ml'},{key:'2',value:'200 ml'},{key:'3',value:'300 ml'}],
-            rating_perc: null,
-            rating_count: null,
-            best_seller: false,
-            cartValue: 0,
-            selectedDropdownValue: '200 ml',
-        },
-             
-    ]
-
+  const data = my_list_data
   const [listData, setListData] = useState(data);
 
 
@@ -328,7 +288,7 @@ function Basic({navigation}) {
                    <Image resizeMode='contain' alt="currency"  source={require('../../assets/images/currency_w.png')} />
                    <Text style={{color:'white',textDecorationLine:'line-through'}}>827</Text></Text>
                </View>
-               <View style={styles.rightContainer}>
+               <View style={categoriesStyles.rightContainer}>
                  <TouchableOpacity onPress={()=>navigation.navigate('review_cart')}>
                    <Text style={{color:'white',fontSize:17}}>View Cart  <Image resizeMode='contain' source={require('../../assets/images/cart.png')} alt="cart" /></Text>
                </TouchableOpacity>
@@ -342,37 +302,3 @@ function Basic({navigation}) {
 
 
 
-const styles=StyleSheet.create({
-      navBar: {
-       
-        height: 50,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: "#F04E23",
-        // marginBottom: 50,
-        padding: 10,
-        borderRadius: 6,
-        marginHorizontal:15,
-        
-      },
-      leftContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-
-      },
-      rightContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-      },
-      rightIcon: {
-        height: 10,
-        width: 10,
-        resizeMode: 'contain',
-        backgroundColor: 'white',
-      }
-
-})
