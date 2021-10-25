@@ -1,6 +1,6 @@
 
-import React, { useState, useContext, createContext } from 'react';
-import { Dimensions, TouchableOpacity, ViewComponent, StyleSheet, View, } from 'react-native';
+import React, { useState, createContext } from 'react';
+import { TouchableOpacity, StyleSheet, View, } from 'react-native';
 
 import {
   NativeBaseProvider,
@@ -9,13 +9,8 @@ import {
   Box,
   Text,
   Pressable,
-  Heading,
-  IconButton,
-  Icon,
   HStack,
-  Avatar,
   VStack,
-  Spacer,
   Image,
   Badge,
   Button,
@@ -25,28 +20,18 @@ import {
 } from 'native-base';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import categoriesStyles from './styles/categories_styles';
-import { Picker } from '@react-native-picker/picker';
-const MyDiv = createContext()
+
 export default function Categories({ navigation }) {
-  // console.log(navigation)
-  const [mode, setMode] = useState('Basic');
-
-
-
   return (
-
     <NativeBaseProvider>
       <Basic navigation={navigation} />
-
     </NativeBaseProvider>
-
   );
 }
 
-function Basic({ navigation }) {
 
-  // const datas = useContext(MyDiv)
-  // console.log(navigation)
+
+function Basic({ navigation }) {
 
   const [cartValue, setCartValue] = useState(0)
 
@@ -103,8 +88,6 @@ function Basic({ navigation }) {
 
   const [listData, setListData] = useState(data);
 
-
-
   const onIncrementHandler = (item_id) => {
 
     const item_exist = listData.find((x) => x['id'] == item_id);
@@ -115,21 +98,21 @@ function Basic({ navigation }) {
       var filteredArray = listData.filter(function (itm) {
         return itm.id != item_id
       });
+      
       filteredArray.splice(index, 0, item_exist);
       setListData(filteredArray)
     }
+    
     listData.map((itm) => {
       value = value + itm.cartValue
       setCartValue(value)
     })
-
   }
 
 
   const onDecrementHandler = (item_id) => {
-
+    
     const item_exist = listData.find((x) => x['id'] == item_id);
-
     if (item_exist) {
       var index = listData.indexOf(item_exist)
       item_exist.cartValue = item_exist.cartValue - 1
@@ -142,12 +125,9 @@ function Basic({ navigation }) {
   }
 
   const changeHandler = (item_id, itemValue) => {
-
+    
     const item_exist = listData.find((x) => x['id'] == item_id);
-
     var index = listData.indexOf(item_exist)
-    // console.log(index,"######")
-
     item_exist.selectedDropdownValue = itemValue
     var filteredArray = listData.filter(function (itm) {
       return itm.id != item_id
@@ -157,7 +137,7 @@ function Basic({ navigation }) {
     setListData(filteredArray)
   }
 
-  const renderItem = ({ item, index }) => (
+  const renderItem = ({ item }) => (
     <Box height="auto" backgroundColor="white" flex="1">
       <Pressable onPress={() => navigation.navigate('product',{navigation:navigation})} bg="white">
         <Box
@@ -171,44 +151,44 @@ function Basic({ navigation }) {
           height="auto"
           style={{ marginHorizontal: 6 }}
         >
-          <HStack space={6} style={{ paddingHorizontal: 10 }}>
+          <HStack space={6} style={categoriesStyles.hstack}>
             <Image source={item.image} style={categoriesStyles.image} alt="Image description" />
-            <VStack style={{ width: '70%' }}>
-              <View style={{ flexDirection: 'row', }}>
-                <View style={[{ flex: 1, flexDirection: 'row', width: 1 }]}>
-                  <Text _dark={{ color: "warmGray.50", }} color="coolGray.800" bold style={{ fontSize: 19 }}>
+            <VStack style={categoriesStyles.vstack}>
+              <View style={categoriesStyles.stackView}>
+                <View style={categoriesStyles.contentView}>
+                  <Text _dark={{ color: "warmGray.50", }} color="coolGray.800" bold fontSize="19">
                     <Image resizeMode='contain' alt="currency" source={require('../../assets/images/currency_b.png')} />{item.discount_amount}
                     <Text bold
-                      style={{ textDecorationLine: 'line-through', fontSize: 16, color: '#9A9A9A' }}>
+                      style={categoriesStyles.textDecorate}>
                       <Image resizeMode='contain' alt="currency" source={require('../../assets/images/currency_b.png')} /> {item.actual_amount}
                     </Text>
 
                   </Text>
                   <Badge bgColor="#2898FF" justifyContent="center" variant='solid' borderRadius="6" height="7" width="50" marginLeft="4" >
-                    <Text style={{ fontWeight: 'bold', color: 'white' }}>{item.discount_perc}</Text></Badge>
+                    <Text style={categoriesStyles.textStyle}>{item.discount_perc}</Text></Badge>
                 </View>
 
               </View>
 
 
-              <Text _dark={{ color: "warmGray.50", }} color="coolGray.800" bold style={{ width: 200, fontSize: 15, color: '#9A9A9A', }} >
+              <Text _dark={{ color: "warmGray.50", }} color="coolGray.800" bold style={categoriesStyles.textContent} >
                 {item.content}
               </Text>
 
               {item.is_vegan && <View style={{ marginVertical: 10, height: 10 }}>
                 <Image resizeMode='contain' alt="vegan" source={require('../../assets/images/vegan.png')}
-                  style={{ height: 20, width: 50 }} />
+                  style={categoriesStyles.veganImage} />
               </View>}
 
-              <View style={{ paddingTop: 10, }}>
-                <Text style={{ color: "#24AF8E" }} bold>
+              <View style={categoriesStyles.ratingView }>
+                <Text style={categoriesStyles.ratingText } bold>
                   <Image resizeMode='contain' alt="star" source={require('../../assets/images/star.png')} />
-                  {item.rating_perc} <Text style={{ color: '#9A9A9A' }}> {item.rating_count} Ratings</Text>
+                  {item.rating_perc} <Text style={categoriesStyles.ratingImageText}> {item.rating_count} Ratings</Text>
                 </Text>
               </View>
 
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <View style={[{ flex: 1, flexDirection: 'row', width: 1, }]}>
+              <View style={categoriesStyles.dropdownView}>
+                <View style={categoriesStyles.dropdownSubView}>
 
                   <VStack alignItems="center" space={4}>
 
@@ -220,7 +200,7 @@ function Basic({ navigation }) {
                         bg: "teal.600",
                         endIcon: <CheckIcon size="5" />,
                       }}
-                      style={{ height: 30 }}
+                      style={categoriesStyles.dropdown}
                       mt={1}
 
                       onValueChange={(itemValue) => {
@@ -237,12 +217,12 @@ function Basic({ navigation }) {
 
                 </View>
 
-                {item.cartValue == 0 && <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                {item.cartValue == 0 && <View style={categoriesStyles.buttonView}>
                   <Button
                     rightIcon={<AddIcon size="4" />}
                     bgColor="#F04E23"
                     onPress={() => onIncrementHandler(item.id)}
-                    style={{ width: '65%', justifyContent: 'space-around' }}
+                    style={categoriesStyles.button}
                   >
                     ADD
                   </Button>
@@ -252,10 +232,10 @@ function Basic({ navigation }) {
 
                 {item.cartValue > 0 &&
                 
-                  <View style={[{ flex: 1, flexDirection: 'row', width: 1, height: 29, justifyContent: 'center' }]}>
-                    <Button style={{ width: '23%', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F04E23' }}
+                  <View style={categoriesStyles.cartView}>
+                    <Button style={categoriesStyles.cartButton}
                       onPress={() => onDecrementHandler(item.id)}>
-                      <MinusIcon size='3' style={{ flex: 1, flexDirection: 'row', color: 'white' }} /></Button>
+                      <MinusIcon size='3' style={categoriesStyles.minusIcon} /></Button>
                     <Input
                       value={item.cartValue.toString()}
                       showSoftInputOnFocus={false}
@@ -263,19 +243,16 @@ function Basic({ navigation }) {
                       w={{
                         base: "45%",
                       }}
-                      style={{ height: 29, textAlign: 'center' }}
+                      style={categoriesStyles.input}
 
                     />
-                    <Button style={{ width: '23%', justifyContent: 'space-around', backgroundColor: '#F04E23' }}
+                    <Button style={categoriesStyles.cartAddButton}
                       onPress={() => onIncrementHandler(item.id)}>
-                      <AddIcon size="3" style={{ flex: 1, flexDirection: 'row', color: 'white' }} /></Button>
+                      <AddIcon size="3" style={categoriesStyles.cartAddIcon} /></Button>
                   </View>
                 }
 
               </View>
-
-
-
             </VStack>
           </HStack>
         </Box>
@@ -288,7 +265,6 @@ function Basic({ navigation }) {
       <Pressable
         w="160"
         ml="auto"
-
         bg="#24AF8E"
         justifyContent="center"
         h="100%"
@@ -296,7 +272,7 @@ function Basic({ navigation }) {
         <VStack alignItems="center" space={4}>
 
           <Image source={require('../../assets/images/list.png')} alt="Image description" style={{ marginLeft: 20 }} />
-          <Text fontWeight="medium" color="white" style={{ marginLeft: 20 }} >
+          <Text fontWeight="medium" style={categoriesStyles.scrollText} >
             Add to my list
           </Text>
         </VStack>
@@ -305,7 +281,7 @@ function Basic({ navigation }) {
   );
 
   return (
-    <Box bg="white" safeArea flex="1" style={{ marginHorizontal: 2 }}>
+    <Box safeArea style={categoriesStyles.Box}>
       <SwipeListView
         data={listData}
         renderItem={renderItem}
@@ -319,27 +295,18 @@ function Basic({ navigation }) {
 
 
       {cartValue > 0 &&
-        <View style={{
-          position: 'absolute',
-          bottom: 25,
-          left: 20,
-          right: 20,
-          elevation: 0,
-          backgroundColor: '#F04E23',
-          borderRadius: 5,
-          height: 60
-        }}>
-          <View style={styles.navBar}>
-            <View style={styles.leftContainer}>
-              <Text style={[{ textAlign: 'left', color: 'white', fontSize: 14, textAlignVertical: 'center' }]}>
+        <View style={categoriesStyles.cartPopup}>
+          <View style={categoriesStyles.navBar}>
+            <View style={categoriesStyles.leftContainer}>
+              <Text style={ categoriesStyles.popupText}>
                 {cartValue} item |
                 <Image resizeMode='contain' alt="currency" source={require('../../assets/images/currency_w.png')} />601
-                {/* <Icon name="rupee" size={20} style={{letterSpacing:10}}/> */}
                 <Image resizeMode='contain' alt="currency" source={require('../../assets/images/currency_w.png')} />
-                <Text style={{ color: 'white', textDecorationLine: 'line-through' }}>827</Text></Text>
+                <Text style={categoriesStyles.popupTextDelete}>827</Text></Text>
             </View>
-            <View style={styles.rightContainer}>
-              <TouchableOpacity onPress={() => navigation.navigate('review_cart')} ><Text style={{ color: 'white', fontSize: 17 }}>View Cart  <Image resizeMode='contain' source={require('../../assets/images/cart.png')} alt="cart" /></Text></TouchableOpacity>
+            <View style={categoriesStyles.rightContainer}>
+              <TouchableOpacity onPress={() => navigation.navigate('review_cart')} >
+                <Text style={categoriesStyles.popupImageText}>View Cart  <Image resizeMode='contain' source={require('../../assets/images/cart.png')} alt="cart" /></Text></TouchableOpacity>
             </View>
           </View>
         </View>
@@ -347,40 +314,3 @@ function Basic({ navigation }) {
     </Box>
   );
 }
-
-
-
-const styles = StyleSheet.create({
-  navBar: {
-
-    height: 50,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: "#F04E23",
-    // marginBottom: 50,
-    padding: 10,
-    borderRadius: 6,
-    marginHorizontal: 15,
-
-  },
-  leftContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-
-  },
-  rightContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  rightIcon: {
-    height: 10,
-    width: 10,
-    resizeMode: 'contain',
-    backgroundColor: 'white',
-  }
-
-})
