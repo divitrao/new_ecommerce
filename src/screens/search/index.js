@@ -7,7 +7,7 @@ import Camera_svg from '../../assets/camera_icon/camera_svg.svg'
 import Back from '../../assets/back_arrow/back.svg'
 import Clock from '../../assets/clock/clock.svg'
 import Cross from '../../assets/cross/cross.svg'
-import SearchCategoriesNavigator from "../../components/customNavigation/topNavigator/searchCategoriesNavigator";
+import SearchCategoriesNavigator from "../../navigations/topNavigator/searchCategoriesNavigator";
 import { recent_search,trending_search } from "../../api/data";
 
 const Search =({navigation})=>{

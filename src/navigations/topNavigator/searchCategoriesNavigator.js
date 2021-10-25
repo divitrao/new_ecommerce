@@ -1,6 +1,6 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Milk_Category from '../../../screens/category/vegetable/milk_categories';
+import Milk_Category from '../../screens/category/vegetable/milk_categories';
 
 
 function SearchCategoriesNavigator({test_string}){

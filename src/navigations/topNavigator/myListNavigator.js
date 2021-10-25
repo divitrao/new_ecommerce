@@ -1,6 +1,6 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import List_Category from '../../../screens/list';
+import List_Category from '../../screens/list';
 
 
 function myListNavigator(){
