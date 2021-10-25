@@ -6,12 +6,11 @@ import MyTabs from "../bottom_tab_navigator";
 import MobileVerification from "../../screens/MobileOtp/mobileVerification";
 import Namedetails from "../../screens/names/namedetails";
 import Getlocation from "../../screens/location/getLocation";
-import Veggies from "../../screens/category/vegetable";
 import Custom_header from "../../screens/Custom_Headers";
 import Review_Cart from "../../screens/reviewCart/reviewCart";
-import TopTabNavigation from "../../components/customNavigation/topNavigator/topTabNavigator";
+import TopTabNavigation from '../../navigations/topNavigator/topTabNavigator';
 import PaymentOptions from "../../screens/paymentOptions/paymentOptions";
-import SearchCategoriesNavigator from "../../components/customNavigation/topNavigator/searchCategoriesNavigator";
+import SearchCategoriesNavigator from "../../navigations/topNavigator/searchCategoriesNavigator";
 import MyOrders from "../../screens/Account/MyOrder";
 import TrackOrder from "../../screens/TrackOrder";
 import Help from '../../assets/help/help.svg'
@@ -27,8 +26,7 @@ const HomeStack = ()=>{
 
 
     return(
-        
-            <stacks.Navigator initialRouteName=''>
+<stacks.Navigator initialRouteName=''>
                 <stacks.Screen name='Mob_number' options={{headerShown:false}} component={MobileVerification} />
                 <stacks.Screen name='otp_verification' options={{headerShown:false}} component={OtpScreen} />
                 <stacks.Screen name='name_detail' options={{headerShown:false}} component={Namedetails}/>
@@ -63,7 +61,8 @@ const HomeStack = ()=>{
                     <stacks.Screen name='order_placed' options={{headerShown:false}} component={OrderPlaced} />
                     <stacks.Screen name='myAddress' options={{headerTitle:'My Address'}} component={MyAddress} />
                     <stacks.Screen name='walletAndPayment' options={{headerTitle:'My Wallet & Payments'}} component={WalletPayments} />
-                    <stacks.Screen name='product' options={({route})=>{return({headerRight:()=>{
+                    <stacks.Screen name='product' options={({route})=>{return({headerTitle:'',headerRight:()=>{
+                        
                         return(
                             <View style={{flexDirection:'row'}}>
                             <View style={{marginRight:10}}>
@@ -79,7 +78,6 @@ const HomeStack = ()=>{
                         </View>
                         )
                     }})}}  component={Product} />
-                    <stacks.Screen name="Vegetable_and_Dairy_info" component={Veggies}  />
             </stacks.Navigator>
         
     )
