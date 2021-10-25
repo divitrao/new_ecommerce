@@ -65,7 +65,7 @@ const HomeStack = ()=>{
                     <stacks.Screen name='order_placed' options={{headerShown:false}} component={OrderPlaced} />
                     <stacks.Screen name='myAddress' options={{headerTitle:'My Address'}} component={MyAddress} />
                     <stacks.Screen name='walletAndPayment' options={{headerTitle:'My Wallet & Payments'}} component={WalletPayments} />
-                    <stacks.Screen name='product' options={({route})=>{return({headerRight:()=>{
+                    <stacks.Screen name='product' options={({route})=>{return({headerTitle:'ss',headerRight:()=>{
                         
                         return(
                             <View style={{flexDirection:'row'}}>
