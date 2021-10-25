@@ -251,13 +251,13 @@ function Basic({ navigation }) {
 
 
                 {item.cartValue > 0 &&
-
+                
                   <View style={[{ flex: 1, flexDirection: 'row', width: 1, height: 29, justifyContent: 'center' }]}>
                     <Button style={{ width: '23%', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F04E23' }}
                       onPress={() => onDecrementHandler(item.id)}>
                       <MinusIcon size='3' style={{ flex: 1, flexDirection: 'row', color: 'white' }} /></Button>
                     <Input
-                      value={cartValue.toString()}
+                      value={item.cartValue.toString()}
                       showSoftInputOnFocus={false}
                       mx="0"
                       w={{
