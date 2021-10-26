@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet,TouchableOpacity, Text, View,ScrollView ,Image, TextInput, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useState } from "react";
+import styles from "./styles"
 
 
 

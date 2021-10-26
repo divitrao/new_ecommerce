@@ -20,7 +20,6 @@ import {
 } from 'native-base';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import categoriesStyles from './styles/categories_styles';
-import { Picker } from '@react-native-picker/picker';
 import { milk_data } from '../../api/data';
 
 export default function Milk_Categories({navigation}) {
@@ -144,7 +143,7 @@ function Basic({navigation}) {
                         {item.best_seller && 
                         
                         <View style={categoriesStyles.tagView}>
-                        <Text style={categories_styles.tagText}>
+                        <Text style={categoriesStyles.tagText}>
                         <Image resizeMode='contain' alt="star" source={require('../../assets/images/more_ico.png')} /> 
                            <Text style={categoriesStyles.tagImageText}> BEST SELLER</Text>
                         </Text>
@@ -275,7 +274,7 @@ function Basic({navigation}) {
                    <Image resizeMode='contain' alt="currency"  source={require('../../assets/images/currency_w.png')} />
                    <Text style={{color:'white',textDecorationLine:'line-through'}}>827</Text></Text>
                </View>
-               <View style={styles.rightContainer}>
+               <View style={categoriesStyles.rightContainer}>
                  <TouchableOpacity onPress={()=>navigation.navigate('review_cart')}>
                    <Text style={{color:'white',fontSize:17}}>View Cart  <Image resizeMode='contain' source={require('../../assets/images/cart.png')} alt="cart" /></Text>
                </TouchableOpacity>

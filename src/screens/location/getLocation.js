@@ -5,6 +5,7 @@ import styles from "./styles"
 
 
 const Getlocation = ({navigation}) => {
+   
     return(
         <View style={styles.main_view}>
         <ScrollView>
