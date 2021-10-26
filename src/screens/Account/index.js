@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, SafeAreaView, SectionList, TouchableOpacity } from "react-native";
 import Profile from '../../assets/profile_pic/profile_pic.svg'
 import Pencil from '../../assets/pencil/pencil.svg'
-import account_styles from './account_styles'
+import styles from "./styles"
 import { DATA } from "../../api/data";
 
 const Account = ({navigation}) => {
@@ -11,10 +11,10 @@ const Account = ({navigation}) => {
 const Item = ({ title }) => (
     <View>
         <TouchableOpacity onPress={()=>navigation.navigate(title.navigate_route)}>
-   {title.id && <View style={[account_styles.item,{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}]}>
+   {title.id && <View style={[styles.item,{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}]}>
           
               <View style={{flexDirection:'row'}}>
-                <View style={account_styles.icons}>
+                <View style={styles.icons}>
                     <View style={{marginVertical:5}}>{title.relative_image}</View>
                 </View>
                 <View style={{marginLeft:10}} >
@@ -25,7 +25,7 @@ const Item = ({ title }) => (
                  <Text>{title.right_arrows}</Text>
               </View>
     </View>}
-    {!title.id && <View style={account_styles.item}>
+    {!title.id && <View style={styles.item}>
         <Text>{title}</Text>
         </View>}
         </TouchableOpacity>
@@ -39,8 +39,8 @@ const Item = ({ title }) => (
 
     return(
 
-        <SafeAreaView style={account_styles.container}>
-        <View style={account_styles.main_view}>
+        <SafeAreaView style={styles.container}>
+        <View style={styles.main_view}>
                <View style={{flexDirection:'row',alignItems:'center'}}>
                    <View>
                        <View>
@@ -57,7 +57,7 @@ const Item = ({ title }) => (
                    </View>
                    <View></View>
                </View>
-               <View style={account_styles.pencil_icon}>
+               <View style={styles.pencil_icon}>
                    <View style={{marginVertical:5}}>
                    <Pencil />
                    </View>
@@ -71,7 +71,7 @@ const Item = ({ title }) => (
         renderItem={({ item }) => <Item title={item} />}
         renderSectionHeader={({ section: { title } }) => (
             <View>
-            <View style={account_styles.title} />
+            <View style={styles.title} />
             <View style={{marginBottom:10}}>
                 <Text style={{fontSize:11,color:'grey'}}>{title}</Text>
             </View>
