@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text,Image, FlatList, ScrollView } from 'react-native';
 import { ArrowBackIcon,Radio,Input,Button,Box, NativeBaseProvider } from "native-base";
 import styles from "./styles"
+import { your_payment_methods } from '../../api/data';
+import { more_payment_methods } from '../../api/data';
 
 const PaymentOptions = ({navigation}) => {
 
@@ -13,55 +15,6 @@ const PaymentOptions = ({navigation}) => {
     ]
 
     const [value, setValue] = React.useState('')
-
-    const [count, setCount] = React.useState(false)
-
-
-    const your_payment_methods = [
-        {
-            id:1,
-            payment_type_image:require('../../assets/payment_screen/gpay.png'),
-            detail:'partha.borah@okhdfcbank'
-        },
-        {
-            id:2,
-            payment_type_image:require('../../assets/payment_screen/mastercard.png'),
-            detail:'4862 - XXXXXXXX - 1001'
-        }
-    ]
-
-    const more_payment_methods = [
-        {
-            id: 1,
-            card_image:require('../../assets/payment_screen/creditdebit.png'),
-            content:'Credit / Debit Card',
-            arrow_image:require('../../assets/payment_screen/rightsidearrow.png')
-
-
-        },   {
-            id: 2,
-            card_image:require('../../assets/payment_screen/upiwallet.png'),
-            content:'UPI',
-            arrow_image:require('../../assets/payment_screen/rightsidearrow.png')
-
-
-        },
-        {
-            id: 3,
-            card_image:require('../../assets/payment_screen/upiwallet.png'),
-            content:'Wallet',
-            arrow_image:require('../../assets/payment_screen/rightsidearrow.png')
-
-
-        },  {
-            id: 4,
-            card_image:require('../../assets/payment_screen/cod.png'),
-            content:'Cash On Delivery',
-            arrow_image:require('../../assets/payment_screen/rightsidearrow.png')
-
-
-        }
-    ]
 
 
     return (

@@ -2,22 +2,10 @@ import React, { useState } from 'react';
 import { View, Text,Image,style,StyleSheet, ScrollView,TouchableOpacity } from 'react-native';
 import {Card,Box, NativeBaseProvider, linearGradient} from 'native-base';
 import styles from "./styles"
+import { your_payment_methods } from '../../api/data';
 
 
 const WalletPayments = ({navigation}) => {
-
-    const your_payment_methods = [
-        {
-            id:1,
-            payment_type_image:require('../../assets/payment_screen/gpay.png'),
-            detail:'partha.borah@okhdfcbank'
-        },
-        {
-            id:2,
-            payment_type_image:require('../../assets/payment_screen/mastercard.png'),
-            detail:'4862 - XXXXXXXX - 1001'
-        }
-    ]
 
     
     return(

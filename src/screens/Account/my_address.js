@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text,Image, ScrollView,TouchableOpacity } from 'react-native';
 import {Card,Input, NativeBaseProvider,Button, extendTheme} from 'native-base';
 import styles from "./styles"
+import { Address } from '../../api/data';
 
 
 const MyAddress = () => {
@@ -9,20 +10,7 @@ const MyAddress = () => {
     const [home, setHome] = useState(true)
 
 
-    const Address = [
-        {
-            id:1,
-            name:'Home',
-            content:"501, Sai Nidhi Residency, 27th cross road,HSR Layout, Sector 7, Bengaluru, Karnataka - 560068",
-            options_icon:require('../../assets/payment_screen/option_icon.png'),
-        },
-        {
-            id:2,
-            name:"Friend's Home",
-            content:"#16/B, Ambalipura - Sarjapur Rd, Kaikondrahalli, Bengaluru, Karnataka 560035",
-            options_icon:require('../../assets/payment_screen/option_icon.png'),
-        }
-    ]
+    
 
 
     return (

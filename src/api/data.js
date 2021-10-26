@@ -646,6 +646,70 @@ export const my_list_data = [
         cartValue: 0,
         selectedDropdownValue: '200 ml',
     },
+
+    
          
 ]
+
+export const Address = [
+    {
+        id:1,
+        name:'Home',
+        content:"501, Sai Nidhi Residency, 27th cross road,HSR Layout, Sector 7, Bengaluru, Karnataka - 560068",
+        options_icon:require('../assets/payment_screen/option_icon.png'),
+    },
+    {
+        id:2,
+        name:"Friend's Home",
+        content:"#16/B, Ambalipura - Sarjapur Rd, Kaikondrahalli, Bengaluru, Karnataka 560035",
+        options_icon:require('../assets/payment_screen/option_icon.png'),
+    }
+]
+
+export const your_payment_methods = [
+    {
+        id:1,
+        payment_type_image:require('../assets/payment_screen/gpay.png'),
+        detail:'partha.borah@okhdfcbank'
+    },
+    {
+        id:2,
+        payment_type_image:require('../assets/payment_screen/mastercard.png'),
+        detail:'4862 - XXXXXXXX - 1001'
+    }
+]
+
+export const more_payment_methods = [
+    {
+        id: 1,
+        card_image:require('../assets/payment_screen/creditdebit.png'),
+        content:'Credit / Debit Card',
+        arrow_image:require('../assets/payment_screen/rightsidearrow.png')
+
+
+    },   {
+        id: 2,
+        card_image:require('../assets/payment_screen/upiwallet.png'),
+        content:'UPI',
+        arrow_image:require('../assets/payment_screen/rightsidearrow.png')
+
+
+    },
+    {
+        id: 3,
+        card_image:require('../assets/payment_screen/upiwallet.png'),
+        content:'Wallet',
+        arrow_image:require('../assets/payment_screen/rightsidearrow.png')
+
+
+    },  {
+        id: 4,
+        card_image:require('../assets/payment_screen/cod.png'),
+        content:'Cash On Delivery',
+        arrow_image:require('../assets/payment_screen/rightsidearrow.png')
+
+
+    }
+]
+
 
