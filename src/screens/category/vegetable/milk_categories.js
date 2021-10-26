@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import Milk_Categories from '../../../components/Categories/milk_category';
 
 export default function Milk_Category({navigation}) {
@@ -7,7 +7,6 @@ export default function Milk_Category({navigation}) {
 
   return (
     <View style={styles.container}>
-        
         <Milk_Categories navigation={navigation} />
     </View>
   );

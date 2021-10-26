@@ -1,11 +1,9 @@
 
 import React, {useState} from "react"
-import { HStack, Stack, Center, NativeBaseProvider, View, Divider, Text, Container, Heading, 
-    ScrollView, VStack,Flex, Button, AddIcon, Accordion, Box, Pressable, Badge,Select,FlatList, CheckIcon} from "native-base"
+import { HStack, Stack, Center, NativeBaseProvider, View, Divider, Text, Heading, 
+    ScrollView, VStack,Flex, Button, AddIcon, Accordion, Badge,Select,FlatList, CheckIcon} from "native-base"
     import {Image} from 'react-native'
-import { backgroundColor, borderWidth, height, marginTop } from "styled-system"
-// import My_List_Icon from '../../assets/images/my_list.svg'
-
+import { product_information } from "../../api/data"
 
 const Header=()=> {
   return (
@@ -99,30 +97,7 @@ const BodyComponent=()=>{
   const InformationComponent=()=>{
 
     const [index, setIndex] = useState({key:0,value:0,color:'#ffffff'});
-    const dataArray = [
-        {
-          key: 1,
-          title: 'Nutrient Value & Benefits',
-          content: 'Contains Vitamin C, Potassium, starch.Potato helps in reducing inflamtion, promote digestion and are good for skin',
-                       
-        },
-        {   
-            key: 2,
-            title: 'Nutrient Value & Benefits', 
-            content: 'Contains Vitamin C, Potassium, starch.Potato helps in reducing inflamtion, promote digestion and are good for skin',
-        },
-        {
-            key: 3,
-            title: 'Storage and Uses',
-            content: 'Contains Vitamin C, Potassium, starch.Potato helps in reducing inflamtion, promote digestion and are good for skin',
-        },
-
-        {
-            key: 5,
-            title: 'Other Product Info',
-            content: 'Contains Vitamin C, Potassium, starch.Potato helps in reducing inflamtion, promote digestion and are good for skin',
-        },
-      ];
+    const dataArray = product_information
     
     const changeIconColor=(e,key)=>{
         console.log(e)

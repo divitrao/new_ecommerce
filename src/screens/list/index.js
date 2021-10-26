@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import List_Categories from '../../components/Categories/list';
 
 export default function List_Category({navigation}) {
@@ -7,7 +7,6 @@ export default function List_Category({navigation}) {
 
   return (
     <View style={styles.container}>
-        
         <List_Categories navigation={navigation} />
     </View>
   );

@@ -3,7 +3,6 @@ export default StyleSheet.create({
     main_view:{
         flex:1,
         backgroundColor:'white'
-        // alignItems:'center'
     },
     product_category:{
         flex:1,

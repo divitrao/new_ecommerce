@@ -713,3 +713,27 @@ export const more_payment_methods = [
 ]
 
 
+export const product_information = [
+    {
+      key: 1,
+      title: 'Nutrient Value & Benefits',
+      content: 'Contains Vitamin C, Potassium, starch.Potato helps in reducing inflamtion, promote digestion and are good for skin',
+                   
+    },
+    {   
+        key: 2,
+        title: 'Nutrient Value & Benefits', 
+        content: 'Contains Vitamin C, Potassium, starch.Potato helps in reducing inflamtion, promote digestion and are good for skin',
+    },
+    {
+        key: 3,
+        title: 'Storage and Uses',
+        content: 'Contains Vitamin C, Potassium, starch.Potato helps in reducing inflamtion, promote digestion and are good for skin',
+    },
+
+    {
+        key: 5,
+        title: 'Other Product Info',
+        content: 'Contains Vitamin C, Potassium, starch.Potato helps in reducing inflamtion, promote digestion and are good for skin',
+    },
+  ];
